@@ -8,16 +8,12 @@ public class Farmer : Player
     private void Start()
     {
         Initalize();
-        state = State.Stand;
-        
     }
     public override void Initalize()
     {
         playerData.speed = 3;
-    }
-
-    public override void Update()
-    {
-        base.Update();
+        state = State.Stand;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        GetComponent<SpriteAnimation>().SetSprite(standSP,0.1f);
     }
 }

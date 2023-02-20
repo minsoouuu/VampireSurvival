@@ -10,6 +10,7 @@ public class SpriteAnimation : MonoBehaviour
     float delayTime = 0;
 
     int spriteIndex = 0;
+    bool isOn = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +22,12 @@ public class SpriteAnimation : MonoBehaviour
     {
         if (sprites.Count == 0)
         {
-        return;
+            return;
         }
         delayTime += Time.deltaTime;
         if (delayTime > spriteDelay)
         {
+
             delayTime = 0;
             sr.sprite = sprites[spriteIndex];
             spriteIndex++;
@@ -42,5 +44,7 @@ public class SpriteAnimation : MonoBehaviour
         spriteDelay = delay;
         spriteIndex = 0;
     }
+
+    
 }
 
