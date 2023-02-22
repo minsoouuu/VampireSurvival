@@ -4,8 +4,6 @@ using UnityEngine;
 using System;
 public class MapController : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private List<GameObject> maps;
 
     float playerXpos;
     float playerYpos;
@@ -15,31 +13,36 @@ public class MapController : MonoBehaviour
     }
     void Update()
     {
-        if (player.transform.position.x % 10 == 0)
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Area"))
         {
-            if (player.transform.position.x > 10)
-            {
-                maps[0].transform.position = new Vector3(30, 10, 0);
-                maps[2].transform.position = new Vector3(30, -10, 0);
-            }
-            else if (player.transform.position.x < -10)
-            {
-                maps[1].transform.position = new Vector3(30, 10, 0);
-                maps[3].transform.position = new Vector3(30, -10, 0);
-            }
+            return;
         }
-        else if (player.transform.position.y % 10 == 0)
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Vector3 myPos = transform.position;
+        float diffX = Mathf.Abs(playerPos.x - myPos.x);
+        float diffY = Mathf.Abs(playerPos.y - myPos.y);
+
+        float dirX = GameManager.instance.player.x < 0 ? -1 : 1;
+        float dirY = GameManager.instance.player.y < 0 ? -1 : 1;
+
+        switch (transform.tag)
         {
-            if (player.transform.position.y > 10)
-            {
-                maps[2].transform.position = new Vector3();
-                maps[3].transform.position = new Vector3();
-            }
-            else if (player.transform.position.y < -10)
-            {
-                maps[0].transform.position = new Vector3();
-                maps[1].transform.position = new Vector3();
-            }
+            case "Ground":
+                if (diffX > diffY)
+                {
+                    transform.Translate(Vector3.right * dirX * 40);
+                }
+                else if (diffX < diffY)
+                {
+                    transform.Translate(Vector3.up * dirY * 40);
+                }
+                    break;
         }
+
     }
 }

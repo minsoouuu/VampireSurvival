@@ -25,12 +25,15 @@ public abstract class Player : MonoBehaviour
 
     protected SpriteRenderer spriteRenderer;
     Animation anim;
+    [HideInInspector] public float x;
+    [HideInInspector] public float y;
 
     public abstract void Initalize();
     void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        Debug.Log(state);
+        x = Input.GetAxisRaw("Horizontal");
+        y = Input.GetAxisRaw("Vertical");
         Vector3 ve2 = new Vector3(x, y, 0f);
         transform.position += ve2 * Time.deltaTime * playerData.speed;
 
@@ -47,11 +50,17 @@ public abstract class Player : MonoBehaviour
         {
             state = State.Run;
             GetComponent<SpriteAnimation>().SetSprite(runSP, 0.1f);
+
         }
         else if(x == 0 && state != State.Stand)
         {
             state = State.Stand;
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
+        }
+        else if (y != 0 && state != State.Run)
+        {
+            state = State.Run;
+            GetComponent<SpriteAnimation>().SetSprite(runSP, 0.1f);
         }
 
     }
