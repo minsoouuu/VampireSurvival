@@ -22,8 +22,10 @@ public class MapController : MonoBehaviour
         {
             return;
         }
+
         Vector3 playerPos = GameManager.instance.player.transform.position;
         Vector3 myPos = transform.position;
+
         float diffX = Mathf.Abs(playerPos.x - myPos.x);
         float diffY = Mathf.Abs(playerPos.y - myPos.y);
 
@@ -36,12 +38,16 @@ public class MapController : MonoBehaviour
                 if (diffX > diffY)
                 {
                     transform.Translate(Vector3.right * dirX * 40);
+                    Debug.Log("x축 이동");
                 }
                 else if (diffX < diffY)
                 {
                     transform.Translate(Vector3.up * dirY * 40);
+                    Debug.Log("y축 이동");
                 }
-                    break;
+                
+
+                break;
         }
 
     }

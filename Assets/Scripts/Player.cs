@@ -46,22 +46,16 @@ public abstract class Player : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        if (x != 0 && state != State.Run)
+        if ((x != 0 || y != 0) && state != State.Run)
         {
             state = State.Run;
             GetComponent<SpriteAnimation>().SetSprite(runSP, 0.1f);
 
         }
-        else if(x == 0 && state != State.Stand)
+        else if (x == 0 && y == 0 && state != State.Stand)
         {
             state = State.Stand;
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
-        else if (y != 0 && state != State.Run)
-        {
-            state = State.Run;
-            GetComponent<SpriteAnimation>().SetSprite(runSP, 0.1f);
-        }
-
     }
 }

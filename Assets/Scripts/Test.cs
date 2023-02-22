@@ -16,21 +16,42 @@ public class Test : MonoBehaviour
     {
 
     }
-    
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag != "Area")
+        {
+            return;
+        }
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Vector3 mapPos = GameManager.instance.player.transform.position;
 
-    void CreateMap()
+        float disX = Mathf.Abs(playerPos.x - mapPos.x);
+        float disY = Mathf.Abs(playerPos.y - mapPos.y);
+
+        float dirX = GameManager.instance.player.x < 0 ? -1 : 1;
+        float dirY = GameManager.instance.player.y < 0 ? -1 : 1;
+
+        if (disX > disY)
+        {
+            CreateMap(dirX);
+        }
+
+    }
+
+    void CreateMap(float dir)
     {
         if (maps != null)
         {
             GameObject nextMap = maps.Dequeue();
             nextMap.SetActive(true);
-            Instantiate(nextMap, player.transform);
+            
+            Instantiate(nextMap,transform);
         }
         else
         {
             maps.Enqueue(map);
-            CreateMap();
+            CreateMap(dir);
         }
     }
 
