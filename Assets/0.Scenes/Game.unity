@@ -8845,6 +8845,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemies:
   - {fileID: 4500844211366840646, guid: 94cdab56165cf5547b2c86c7cdeae498, type: 3}
+  - {fileID: -8704867982953276302, guid: a4337fc4df5810b4b9cdd1cf9da3a666, type: 3}
+  - {fileID: -8196110560083176220, guid: 613e0cf1832bac34e91c0330961f274f, type: 3}
+  - {fileID: -3995509143603585268, guid: 72ee3e403147adb43ac745e7eb2aa2e5, type: 3}
+  - {fileID: 7202436410201121828, guid: f5031d5a9cc01cb47a921edf300acd06, type: 3}
   spawnPoints: {fileID: 53287507}
 --- !u!4 &1005664898
 Transform:
@@ -9156,7 +9160,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &1689502896
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -13427,7 +13431,6 @@ GameObject:
   - component: {fileID: 1962722487}
   - component: {fileID: 1962722486}
   - component: {fileID: 1962722485}
-  - component: {fileID: 1962722488}
   - component: {fileID: 1962722489}
   - component: {fileID: 1962722490}
   m_Layer: 0
@@ -13503,19 +13506,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1962722488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962722484}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdeedc39087a5894488c8929fd17accc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &1962722489
 MonoBehaviour:
   m_ObjectHideFlags: 0

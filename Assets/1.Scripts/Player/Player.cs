@@ -27,15 +27,14 @@ public abstract class Player : MonoBehaviour
     Animation anim;
     [HideInInspector] public float x;
     [HideInInspector] public float y;
-
     public abstract void Initalize();
     void Update()
     {
-        Debug.Log(state);
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
         Vector3 ve2 = new Vector3(x, y, 0f);
-        transform.position += ve2 * Time.deltaTime * playerData.speed;
+        Vector3 dir = Vector3.Normalize(ve2);
+        transform.position += dir * Time.deltaTime * playerData.speed;
 
         if (x < 0)
         {
