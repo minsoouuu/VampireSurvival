@@ -10,7 +10,6 @@ public class SpriteAnimation : MonoBehaviour
     float delayTime = 0;
 
     int spriteIndex = 0;
-    bool isOn = true;
     // Start is called before the first frame update
     void Start()
     {
