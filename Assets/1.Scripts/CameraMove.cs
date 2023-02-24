@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    [SerializeField] private Player player;
     void Start()
     {
+        player = FindObjectOfType<Player>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, player.transform.position, 2f *Time.deltaTime);
-
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime);
     }
 }

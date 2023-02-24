@@ -66,7 +66,7 @@ public abstract class Enemy : MonoBehaviour
         float dis = Vector3.Distance(transform.position, player.transform.position);
         if (dis <= 0.7f)
         {
-            //Damage();
+
         }
         
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyData.speed * Time.deltaTime);
@@ -87,17 +87,14 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    void Damage()
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        do
+        if (collision.gameObject.tag.Equals("Player"))
         {
-            player.GetComponent<Player>().HP -= enemyData.damage;
-            if (attackdelayTime > 3.1)
-            {
-                attackdelayTime = 0f;
-            }
+            Debug.Log("ÄÝ¸®Á¯");
+
+            collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
         }
-        while (attackdelayTime > 3);
     }
 
     void Die()

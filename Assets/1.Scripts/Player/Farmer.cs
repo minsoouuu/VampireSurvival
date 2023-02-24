@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Farmer : Player
 {
-
-    private void Start()
+    private void Awake()
     {
         Initalize();
     }
     public override void Initalize()
     {
-        playerData.speed = 5;
+        playerData.speed = 5f;
         playerData.maxHp = 100f;
         state = State.Stand;
         spriteRenderer = GetComponent<SpriteRenderer>();

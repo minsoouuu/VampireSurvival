@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public struct PlayerData
 {
@@ -23,13 +24,12 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected List<Sprite> standSP;
     [SerializeField] protected List<Sprite> runSP;
     [SerializeField] protected List<Sprite> deadSP;
-
     protected SpriteRenderer spriteRenderer;
     Animation anim;
     [HideInInspector] public float x;
     [HideInInspector] public float y;
 
-    float curHp;
+    float curHp = 0;
 
     public float HP
     {
@@ -40,18 +40,23 @@ public abstract class Player : MonoBehaviour
             Debug.Log(curHp);
         }
     }
-
     public abstract void Initalize();
 
     void Start()
     {
-        curHp = playerData.maxHp;
+        HP = playerData.maxHp;
+        Debug.Log(playerData.speed);
     }
+
     void Update()
     {
         if (!GameManager.instance.isLive)
         {
             return;
+        }
+        if (curHp < 0)
+        {
+
         }
 
         x = Input.GetAxisRaw("Horizontal");
@@ -80,9 +85,5 @@ public abstract class Player : MonoBehaviour
             state = State.Stand;
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
     }
 }
