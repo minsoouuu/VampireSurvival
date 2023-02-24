@@ -18,18 +18,26 @@ public enum States
 
 public abstract class Enemy : MonoBehaviour
 {
+    public EnemyData enemyData = new EnemyData();
+    States state = States.Stand;
     [SerializeField] private List<Sprite> runSprites;
     [SerializeField] private List<Sprite> deadSprites;
     [SerializeField] private List<Sprite> hitSprites;
     Player player;
-    public EnemyData enemyData = new EnemyData();
-    States state = States.Stand;
+    float curHp = 0;
+    float maxHp = 100;
+    float attackdelayTime = 0;
+    
+    public float HP
+    {
+        get { return curHp; }
+        set { curHp = value; }
+    }
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
-        Vector3 vec = new Vector3(0, 0, 0);
-        transform.Translate(vec.normalized);
+        curHp = maxHp;
     }
 
     public abstract void Init();
@@ -37,34 +45,38 @@ public abstract class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         Vector3 playerPos = player.transform.position;
         Vector3 myPos = transform.position;
         Vector3 dirVec = playerPos - myPos;
         Vector3 dir = Vector3.Normalize(dirVec);
         Debug.Log(dir);
         transform.Translate(dir * Time.deltaTime * enemyData.speed);
+        */
+
+        if (!GameManager.instance.isLive)
+        {
+            return;
+        }
+        attackdelayTime += Time.deltaTime;
+        
+        Vector3 dir = player.transform.position - transform.position;
+        transform.Translate(dir.normalized * Time.deltaTime * enemyData.speed);
+
+        float dis = Vector3.Distance(transform.position, player.transform.position);
+        if (dis <= 0.7f)
+        {
+            //Damage();
+        }
         
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyData.speed * Time.deltaTime);
 
-        /*
-        if (player.transform.position.y < transform.position.y)
-        {
-            transform.Translate(Vector3.down * Time.deltaTime * enemyData.speed * 2);
-        }
-        else
-        {
-            transform.Translate(Vector3.up * Time.deltaTime * 2);
-        }
-        */
-
         if (player.transform.position.x < transform.position.x)
         {
-            //transform.Translate(Vector3.left * Time.deltaTime * enemyData.speed);
             GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
-            //transform.Translate(Vector3.right * Time.deltaTime * enemyData.speed);
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
@@ -73,5 +85,24 @@ public abstract class Enemy : MonoBehaviour
             state = States.Run;
             GetComponent<SpriteAnimation>().SetSprite(runSprites, 0.1f);
         }
+    }
+
+    void Damage()
+    {
+        do
+        {
+            player.GetComponent<Player>().HP -= enemyData.damage;
+            if (attackdelayTime > 3.1)
+            {
+                attackdelayTime = 0f;
+            }
+        }
+        while (attackdelayTime > 3);
+    }
+
+    void Die()
+    {
+        GetComponent<SpriteAnimation>().SetSprite(deadSprites, 0.1f);
+        GameManager.instance.isLive = false;
     }
 }

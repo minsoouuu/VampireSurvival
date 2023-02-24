@@ -44,6 +44,5 @@ public class SpriteAnimation : MonoBehaviour
         spriteIndex = 0;
     }
 
-    
 }
 

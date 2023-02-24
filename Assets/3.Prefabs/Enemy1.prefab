@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4541223394711544001}
   - component: {fileID: 8068348141080632556}
-  - component: {fileID: -2647197364541280807}
-  - component: {fileID: -8704867982953276302}
   - component: {fileID: 4688023235830250982}
   - component: {fileID: 8180327528528075783}
+  - component: {fileID: -8704867982953276302}
+  - component: {fileID: -2647197364541280807}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -88,41 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2647197364541280807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5664051052763767682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1bbff41ccf6f074fa1db32d01391c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-8704867982953276302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5664051052763767682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c687bb9623d4a04db500629553aa471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSprites:
-  - {fileID: -493647738, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  - {fileID: 1354593876, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  - {fileID: 2018998915, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  - {fileID: 66914582, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  - {fileID: 1243161592, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  - {fileID: -1524729577, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  deadSprites:
-  - {fileID: -2007313318, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  hitSprites:
-  - {fileID: 194153472, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
 --- !u!50 &4688023235830250982
 Rigidbody2D:
   serializedVersion: 4
@@ -160,3 +125,38 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.6, y: 0.9}
   m_Direction: 0
+--- !u!114 &-8704867982953276302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5664051052763767682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c687bb9623d4a04db500629553aa471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSprites:
+  - {fileID: -493647738, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  - {fileID: 1354593876, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  - {fileID: 2018998915, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  - {fileID: 66914582, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  - {fileID: 1243161592, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  - {fileID: -1524729577, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  deadSprites:
+  - {fileID: -2007313318, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  hitSprites:
+  - {fileID: 194153472, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+--- !u!114 &-2647197364541280807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5664051052763767682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bbff41ccf6f074fa1db32d01391c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

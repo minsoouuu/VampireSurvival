@@ -7,7 +7,7 @@ public class EnemySpawnController : MonoBehaviour
     float spawnTime = 0;
     [SerializeField] private Enemy[] Enemies;
     [SerializeField] private Transform spawnPoints;
-
+    [SerializeField] private Transform trans;
     int spawnIndex = 0;
     int enemyCount = 0;
     void Start()
@@ -40,5 +40,6 @@ public class EnemySpawnController : MonoBehaviour
     {
         Enemy enemy = Instantiate(Enemies[index], spawnPoints);
         enemy.Init();
+        //enemy.transform.SetParent(trans);
     }
 }

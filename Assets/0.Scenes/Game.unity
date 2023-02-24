@@ -4498,6 +4498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1689502891}
+  isLive: 1
 --- !u!4 &487086357
 Transform:
   m_ObjectHideFlags: 0
@@ -8850,6 +8851,7 @@ MonoBehaviour:
   - {fileID: -3995509143603585268, guid: 72ee3e403147adb43ac745e7eb2aa2e5, type: 3}
   - {fileID: 7202436410201121828, guid: f5031d5a9cc01cb47a921edf300acd06, type: 3}
   spawnPoints: {fileID: 53287507}
+  trans: {fileID: 0}
 --- !u!4 &1005664898
 Transform:
   m_ObjectHideFlags: 0
@@ -8857,7 +8859,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005664896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

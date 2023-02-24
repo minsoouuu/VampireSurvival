@@ -5,6 +5,7 @@ using UnityEngine;
 public struct PlayerData
 {
     public float speed;
+    public float maxHp;
 }
 
 public enum State
@@ -27,9 +28,32 @@ public abstract class Player : MonoBehaviour
     Animation anim;
     [HideInInspector] public float x;
     [HideInInspector] public float y;
+
+    float curHp;
+
+    public float HP
+    {
+        get { return curHp; }
+        set 
+        { 
+            curHp = value;
+            Debug.Log(curHp);
+        }
+    }
+
     public abstract void Initalize();
+
+    void Start()
+    {
+        curHp = playerData.maxHp;
+    }
     void Update()
     {
+        if (!GameManager.instance.isLive)
+        {
+            return;
+        }
+
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
         Vector3 ve2 = new Vector3(x, y, 0f);
@@ -56,5 +80,9 @@ public abstract class Player : MonoBehaviour
             state = State.Stand;
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
     }
 }

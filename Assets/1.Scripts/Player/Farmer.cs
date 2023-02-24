@@ -12,6 +12,7 @@ public class Farmer : Player
     public override void Initalize()
     {
         playerData.speed = 5;
+        playerData.maxHp = 100f;
         state = State.Stand;
         spriteRenderer = GetComponent<SpriteRenderer>();
         GetComponent<SpriteAnimation>().SetSprite(standSP,0.1f);
