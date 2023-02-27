@@ -44,6 +44,7 @@ public class EnemySpawnController : MonoBehaviour
     {
         Enemy enemy = Instantiate(Enemies[index], spawnPoints);
         enemy.Init();
+        GameManager.instance.player.enemys.Add(enemy);
         //enemy.transform.SetParent(trans);
     }
 }

@@ -87,7 +87,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
         {

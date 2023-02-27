@@ -9240,6 +9240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpImage: {fileID: 695725507}
   deadImage: {fileID: 1680121872}
+  player: {fileID: 0}
 --- !u!4 &1299648602
 Transform:
   m_ObjectHideFlags: 0
@@ -9303,6 +9304,37 @@ Transform:
   - {fileID: 2093745949}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1413103139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413103140}
+  m_Layer: 0
+  m_Name: BulletParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413103140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413103139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1680121872
 GameObject:
@@ -9439,6 +9471,8 @@ MonoBehaviour:
   - {fileID: 1929632063, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
   x: 0
   y: 0
+  bullet: {fileID: 3224483802320869786, guid: e59e56b1d25f56348998a33c100a0c59, type: 3}
+  bulletparent: {fileID: 1413103140}
 --- !u!114 &1689502892
 MonoBehaviour:
   m_ObjectHideFlags: 0
