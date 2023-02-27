@@ -91,9 +91,13 @@ public abstract class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            Debug.Log("ÄÝ¸®Á¯");
-
-            collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
+            if (state != States.Hit)
+            {
+                state = States.Hit;
+                collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
+                GetComponent<SpriteAnimation>().SetSprite(hitSprites, 0.1f);
+            }
+            
         }
     }
 

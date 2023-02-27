@@ -18,6 +18,10 @@ public class EnemySpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.instance.isLive)
+        {
+            return;
+        }
         spawnTime += Time.deltaTime;
         if (spawnTime > 1f)
         {

@@ -37,7 +37,6 @@ public abstract class Player : MonoBehaviour
         set 
         { 
             curHp = value;
-            Debug.Log(curHp);
         }
     }
     public abstract void Initalize();
@@ -45,7 +44,6 @@ public abstract class Player : MonoBehaviour
     void Start()
     {
         HP = playerData.maxHp;
-        Debug.Log(playerData.speed);
     }
 
     void Update()
@@ -56,7 +54,9 @@ public abstract class Player : MonoBehaviour
         }
         if (curHp < 0)
         {
-
+            GetComponent<SpriteAnimation>().SetSprite(deadSP, 0.1f);
+            GameManager.instance.uicont.DieImage();
+            GameManager.instance.isLive = false;
         }
 
         x = Input.GetAxisRaw("Horizontal");
