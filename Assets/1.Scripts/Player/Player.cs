@@ -55,7 +55,7 @@ public abstract class Player : MonoBehaviour
         if (curHp < 0)
         {
             GetComponent<SpriteAnimation>().SetSprite(deadSP, 0.1f);
-            GameManager.instance.uicont.DieImage();
+            //GameManager.instance.uicont.DieImage();
             GameManager.instance.isLive = false;
         }
 

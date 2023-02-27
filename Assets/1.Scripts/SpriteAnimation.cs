@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SpriteAnimation : MonoBehaviour
 {
@@ -39,10 +40,25 @@ public class SpriteAnimation : MonoBehaviour
 
     public void SetSprite(List<Sprite> sprites, float delay)
     {
-        this.sprites = sprites;
+        delayTime = 0;
+        this.sprites.Clear();
+        this.sprites = sprites.ToList();
         spriteDelay = delay;
         spriteIndex = 0;
     }
+    public void SetSprite(Sprite sprite, List<Sprite> argsprites, float delayTime)
+    {
+        this.delayTime = 0;
+        this.sprites.Clear();
+        sr.sprite = sprite;
+        StartCoroutine(ReturnSprite(argsprites, delayTime));
+    }
 
+    IEnumerator ReturnSprite(List<Sprite> argsprites, float delayTime)
+    {
+        yield return new WaitForSeconds(0.01f);
+
+        SetSprite(argsprites, delayTime);
+    }
 }
 

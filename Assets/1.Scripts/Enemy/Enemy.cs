@@ -22,7 +22,7 @@ public abstract class Enemy : MonoBehaviour
     States state = States.Stand;
     [SerializeField] private List<Sprite> runSprites;
     [SerializeField] private List<Sprite> deadSprites;
-    [SerializeField] private List<Sprite> hitSprites;
+    [SerializeField] private Sprite hitSprites;
     Player player;
     float curHp = 0;
     float maxHp = 100;
@@ -56,7 +56,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (!GameManager.instance.isLive)
         {
-            return;
+           return;
         }
         attackdelayTime += Time.deltaTime;
         
@@ -95,7 +95,7 @@ public abstract class Enemy : MonoBehaviour
             {
                 state = States.Hit;
                 collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
-                GetComponent<SpriteAnimation>().SetSprite(hitSprites, 0.1f);
+                GetComponent<SpriteAnimation>().SetSprite(hitSprites,runSprites, 0.1f);
             }
             
         }
