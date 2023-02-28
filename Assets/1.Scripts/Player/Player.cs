@@ -33,7 +33,7 @@ public abstract class Player : MonoBehaviour
     [SerializeField] private Transform bulletparent;
     float curHp = 0;
     float attackdelay = 0;
-
+    [SerializeField] Transform bulletpos;
 
     public float HP
     {
@@ -48,6 +48,7 @@ public abstract class Player : MonoBehaviour
     void Start()
     {
         HP = playerData.maxHp;
+        bulletpos = transform.GetChild(0);
     }
 
     void Update()
@@ -108,21 +109,45 @@ public abstract class Player : MonoBehaviour
 
             foreach (var enemy in enemys)
             {
-                target = enemy;
-                if (target != null)
+                if (target == null)
+                {
+                    target = enemy;
+                    
+                }
+                else
                 {
                     float dis = Vector3.Distance(transform.position, target.transform.position);
-                    if()
+                    float enemydis = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (dis > enemydis)
+                    {
+                        target = enemy;
+                    }
                 }
             }
-
-
-            if (dis < 10)
+            float targetdis = Vector3.Distance(transform.position, target.transform.position);
+            if (targetdis < 10)
             {
+                
                 Vector3 dir = target.transform.position - transform.position;
+                float b = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                Quaternion shotdir = Quaternion.AngleAxis(b, Vector3.forward);
+                bulletpos.transform.rotation = shotdir;
+
+
                 Bullet bt = Instantiate(bullet, transform);
                 bt.SetDir(dir);
                 bt.transform.SetParent(bulletparent);
+                
+
+                /*
+                Vector3 dir = target.transform.position - transform.position;
+                float b = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                Quaternion qt = Quaternion.AngleAxis(b, Vector3.back);
+                
+                Bullet bb = Instantiate(bullet, bulletpos);
+                bulletpos.transform.rotation = qt;
+                bb.transform.SetParent(bulletparent);
+                */
             }
         }
     }
