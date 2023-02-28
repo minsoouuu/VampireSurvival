@@ -93,7 +93,7 @@ public abstract class Player : MonoBehaviour
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
 
-        if (attackdelay > 1)
+        if (attackdelay > 0.5f)
         {
             FindTarget();
             attackdelay = 0;
@@ -124,25 +124,20 @@ public abstract class Player : MonoBehaviour
                     }
                 }
             }
+
             float targetdis = Vector3.Distance(transform.position, target.transform.position);
             if (targetdis < 10)
             {
                 
                 Vector3 dir = target.transform.position - transform.position;
-                float b = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                Quaternion shotdir = Quaternion.AngleAxis(b, Vector3.forward);
-                bulletpos.transform.rotation = shotdir;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                bulletpos.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-
-                Bullet bt = Instantiate(bullet, transform);
-                bt.SetDir(dir);
+                Bullet bt = Instantiate(bullet, bulletpos);
                 bt.transform.SetParent(bulletparent);
                 
-
                 /*
                 Vector3 dir = target.transform.position - transform.position;
-                float b = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                Quaternion qt = Quaternion.AngleAxis(b, Vector3.back);
                 
                 Bullet bb = Instantiate(bullet, bulletpos);
                 bulletpos.transform.rotation = qt;

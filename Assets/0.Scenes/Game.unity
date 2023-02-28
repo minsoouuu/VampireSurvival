@@ -9474,6 +9474,7 @@ MonoBehaviour:
   y: 0
   bullet: {fileID: 3224483802320869786, guid: e59e56b1d25f56348998a33c100a0c59, type: 3}
   bulletparent: {fileID: 1413103140}
+  bulletpos: {fileID: 0}
 --- !u!114 &1689502892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9602,7 +9603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1689980437}
   m_Layer: 0
-  m_Name: GunPos
+  m_Name: BulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,23 +10,31 @@ public struct BulletData
 
 public abstract class Bullet : MonoBehaviour
 {
-    Vector3 dir;
-
     public BulletData bulletData = new BulletData();
 
     public abstract void Initalize();
 
     private void Update()
     {
-        transform.Translate(dir.normalized* Time.deltaTime * bulletData.speed);
-        //transform.Translate(Vector3.up * Time.deltaTime * bulletData.speed);
+        //transform.Translate(dir.normalized* Time.deltaTime * bulletData.speed);
+        transform.Translate(Vector3.up * Time.deltaTime * bulletData.speed);
     }
 
-    public void SetDir(Vector3 dir )
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        this.dir = dir;
-        Quaternion qqq = Quaternion.Euler(dir);
-        transform.rotation = qqq;
-        Debug.Log(qqq);
+        if (collision.tag.Equals("Enemy"))
+        {
+            collision.GetComponent<Enemy>().HP -= bulletData.damage;
+            Debug.Log(collision.gameObject.GetComponent<Enemy>().HP);
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetDir(Quaternion dir )
+    {
+        transform.rotation = dir;
+        //Quaternion qqq = Quaternion.Euler(dir);
     }
 }

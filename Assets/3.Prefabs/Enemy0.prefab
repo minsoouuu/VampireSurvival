@@ -144,8 +144,7 @@ MonoBehaviour:
   - {fileID: 1488126946, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
   deadSprites:
   - {fileID: 1261089785, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
-  hitSprites:
-  - {fileID: -392852972, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
+  hitSprites: {fileID: 0}
 --- !u!114 &2235877710519527415
 MonoBehaviour:
   m_ObjectHideFlags: 0

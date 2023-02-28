@@ -58,16 +58,16 @@ public abstract class Enemy : MonoBehaviour
         {
            return;
         }
+        if (HP < 0)
+        {
+            Die();
+        }
         attackdelayTime += Time.deltaTime;
         
         Vector3 dir = player.transform.position - transform.position;
         transform.Translate(dir.normalized * Time.deltaTime * enemyData.speed);
 
         float dis = Vector3.Distance(transform.position, player.transform.position);
-        if (dis <= 0.7f)
-        {
-
-        }
         
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyData.speed * Time.deltaTime);
 
@@ -89,21 +89,23 @@ public abstract class Enemy : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag == "Bullet")
         {
             if (state != States.Hit)
             {
                 state = States.Hit;
-                collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
                 GetComponent<SpriteAnimation>().SetSprite(hitSprites,runSprites, 0.1f);
             }
-            
+        }
+        else if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
         }
     }
 
     void Die()
     {
         GetComponent<SpriteAnimation>().SetSprite(deadSprites, 0.1f);
-        GameManager.instance.isLive = false;
+        Destroy(gameObject, 1f);
     }
 }
