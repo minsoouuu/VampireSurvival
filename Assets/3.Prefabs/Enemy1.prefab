@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -493647738, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -148,10 +148,11 @@ MonoBehaviour:
   - {fileID: -2007313318, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
   hitSprite: {fileID: 194153472, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
   expItems:
-  - {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: -1997803578, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  - {fileID: 2620340759104819498, guid: 6c6ddaa186d1b674698a385cb2115db6, type: 3}
+  - {fileID: 4578068387781608350, guid: 9ad7cdd1094e4034382f14ad04904d5f, type: 3}
+  - {fileID: 254493258825606495, guid: 92b05daf7e8993440ac520ed6974fb00, type: 3}
   boxItem: {fileID: 0}
+  itemparent: {fileID: 0}
 --- !u!114 &-2647197364541280807
 MonoBehaviour:
   m_ObjectHideFlags: 0

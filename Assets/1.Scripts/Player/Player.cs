@@ -26,6 +26,7 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected List<Sprite> runSP;
     [SerializeField] protected List<Sprite> deadSP;
     protected SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] weaponSprites;
     Animation anim;
     [HideInInspector] public float x;
     [HideInInspector] public float y;
@@ -33,6 +34,7 @@ public abstract class Player : MonoBehaviour
     [SerializeField] private Transform bulletparent;
     float attackdelay = 0;
     [SerializeField] Transform bulletpos;
+    [HideInInspector] public SpriteRenderer weapon;
     float curHp = 0;
 
     public float HP
@@ -42,6 +44,7 @@ public abstract class Player : MonoBehaviour
         
     }
     float curExp = 0;
+    [HideInInspector] public float maxExp = 100f;
     public float Exp
     {
         get { return curExp; }
@@ -52,7 +55,9 @@ public abstract class Player : MonoBehaviour
     void Start()
     {
         HP = playerData.maxHp;
-        bulletpos = transform.GetChild(0);
+        weapon = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        bulletpos = transform.GetChild(1);
+        weapon.sprite = weaponSprites[0];
     }
 
     void Update()
@@ -63,6 +68,7 @@ public abstract class Player : MonoBehaviour
         }
         if (curHp < 0)
         {
+            Debug.Log("»ç¸Á");
             GetComponent<SpriteAnimation>().SetSprite(deadSP, 0.1f);
             //GameManager.instance.uicont.DieImage();
             GameManager.instance.isLive = false;
@@ -80,10 +86,12 @@ public abstract class Player : MonoBehaviour
         if (x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
+            weapon.flipX = true;
         }
         else if(x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
+            weapon.flipX = false;
         }
 
         if ((x != 0 || y != 0) && state != State.Run)
@@ -97,7 +105,7 @@ public abstract class Player : MonoBehaviour
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
 
-        if (attackdelay > 0.1f)
+        if (attackdelay > 0.3f)
         {
             FindTarget();
             attackdelay = 0;
@@ -147,6 +155,14 @@ public abstract class Player : MonoBehaviour
                 bb.transform.SetParent(bulletparent);
                 */
             }
+        }
+    }
+
+    void LevelUp()
+    {
+        if (curExp >= maxExp)
+        {
+
         }
     }
 }

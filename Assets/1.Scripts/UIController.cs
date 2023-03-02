@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] Image hpImage;
+    [SerializeField] Image expImage;
     [SerializeField] GameObject deadImage;
     [SerializeField] Player player;
     void Start()
@@ -17,9 +18,10 @@ public class UIController : MonoBehaviour
     void Update()
     {
         hpImage.fillAmount = player.HP / player.playerData.maxHp;
+        expImage.fillAmount = player.Exp / player.maxExp;
     }
     public void DieImage()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
+        deadImage.GetComponent<Image>().color = new Color(1f, 1f, 1f);
     }
 }

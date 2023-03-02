@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System.Linq;
 
 public class SpriteAnimation : MonoBehaviour
@@ -11,6 +12,8 @@ public class SpriteAnimation : MonoBehaviour
     float delayTime = 0;
 
     int spriteIndex = 0;
+
+    UnityAction action = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +30,21 @@ public class SpriteAnimation : MonoBehaviour
         delayTime += Time.deltaTime;
         if (delayTime > spriteDelay)
         {
-
             delayTime = 0;
             sr.sprite = sprites[spriteIndex];
             spriteIndex++;
             if (spriteIndex > sprites.Count - 1)
             {
-                spriteIndex = 0;
+                if (action == null)
+                {
+                    spriteIndex = 0;
+                }
+                else
+                {
+                    sprites.Clear();
+                    action();
+                    action = null;
+                }
             }
         }
     }
@@ -45,6 +56,14 @@ public class SpriteAnimation : MonoBehaviour
         this.sprites = sprites.ToList();
         spriteDelay = delay;
         spriteIndex = 0;
+    }
+    public void SetSprite(List<Sprite> argsprites, float delayTime, UnityAction action)
+    {
+        delayTime = 0;
+        this.sprites.Clear();
+        this.action = action;
+        sprites = argsprites.ToList();
+        spriteDelay = delayTime;
     }
     public void SetSprite(Sprite sprite, List<Sprite> argsprites, float delayTime)
     {
