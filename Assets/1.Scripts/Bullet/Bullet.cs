@@ -28,7 +28,10 @@ public abstract class Bullet : MonoBehaviour
         {
             collision.GetComponent<Enemy>().HP -= bulletData.damage;
             Debug.Log(collision.gameObject.GetComponent<Enemy>().HP);
-            Destroy(gameObject);
+            if (collision != null)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

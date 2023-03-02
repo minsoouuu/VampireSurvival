@@ -40,13 +40,11 @@ public class MapController : MonoBehaviour
                 if (diffX < diffY)
                 {
                     transform.Translate(Vector3.up * dirY * 40);
-                    Debug.Log("y축 이동");
                 }
                 
                 else if (diffX > diffY)
                 {
                     transform.Translate(Vector3.right * dirX * 40);
-                    Debug.Log("x축 이동");
                 }
                 else
                 {

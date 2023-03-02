@@ -31,17 +31,21 @@ public abstract class Player : MonoBehaviour
     [HideInInspector] public float y;
     [SerializeField] private Bullet bullet;
     [SerializeField] private Transform bulletparent;
-    float curHp = 0;
     float attackdelay = 0;
     [SerializeField] Transform bulletpos;
+    float curHp = 0;
 
     public float HP
     {
         get { return curHp; }
-        set 
-        { 
-            curHp = value;
-        }
+        set { curHp = value; }
+        
+    }
+    float curExp = 0;
+    public float Exp
+    {
+        get { return curExp; }
+        set { curExp = value; }
     }
     public abstract void Initalize();
 
@@ -93,7 +97,7 @@ public abstract class Player : MonoBehaviour
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
 
-        if (attackdelay > 0.5f)
+        if (attackdelay > 0.1f)
         {
             FindTarget();
             attackdelay = 0;
@@ -112,7 +116,6 @@ public abstract class Player : MonoBehaviour
                 if (target == null)
                 {
                     target = enemy;
-                    
                 }
                 else
                 {

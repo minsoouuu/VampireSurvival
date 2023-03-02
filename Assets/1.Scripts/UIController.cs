@@ -20,6 +20,6 @@ public class UIController : MonoBehaviour
     }
     public void DieImage()
     {
-        deadImage.SetActive(true);
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 }

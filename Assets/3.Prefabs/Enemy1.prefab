@@ -144,10 +144,14 @@ MonoBehaviour:
   - {fileID: 66914582, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
   - {fileID: 1243161592, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
   - {fileID: -1524729577, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  deadSprites:
+  deadSprite:
   - {fileID: -2007313318, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
-  hitSprites:
-  - {fileID: 194153472, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  hitSprite: {fileID: 194153472, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  expItems:
+  - {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  - {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  - {fileID: -1997803578, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  boxItem: {fileID: 0}
 --- !u!114 &-2647197364541280807
 MonoBehaviour:
   m_ObjectHideFlags: 0

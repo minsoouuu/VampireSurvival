@@ -21,13 +21,16 @@ public abstract class Enemy : MonoBehaviour
     public EnemyData enemyData = new EnemyData();
     States state = States.Stand;
     [SerializeField] private List<Sprite> runSprites;
-    [SerializeField] private List<Sprite> deadSprites;
-    [SerializeField] private Sprite hitSprites;
+    [SerializeField] private List<Sprite> deadSprite;
+    [SerializeField] private Sprite hitSprite;
+    [SerializeField] private Sprite[] expItems;
+    [SerializeField] private Sprite boxItem;
     Player player;
     float curHp = 0;
     float maxHp = 100;
     float attackdelayTime = 0;
-    
+
+    bool isLive = true;
     public float HP
     {
         get { return curHp; }
@@ -58,6 +61,12 @@ public abstract class Enemy : MonoBehaviour
         {
            return;
         }
+
+        if (!isLive)
+        {
+            return;
+        }
+
         if (HP < 0)
         {
             Die();
@@ -87,17 +96,17 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
             if (state != States.Hit)
             {
                 state = States.Hit;
-                GetComponent<SpriteAnimation>().SetSprite(hitSprites,runSprites, 0.1f);
+                GetComponent<SpriteAnimation>().SetSprite(hitSprite, runSprites, 0.1f);
             }
         }
-        else if(collision.gameObject.tag == "Player")
+        else if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
         }
@@ -105,7 +114,15 @@ public abstract class Enemy : MonoBehaviour
 
     void Die()
     {
-        GetComponent<SpriteAnimation>().SetSprite(deadSprites, 0.1f);
-        Destroy(gameObject, 1f);
+        GetComponent<SpriteAnimation>().SetSprite(deadSprite, 0.1f);
+        GameManager.instance.player.enemys.Remove(this);
+        Instantiate(expItems[Random.Range(0, expItems.Length)], transform);
+        int rand = Random.Range(0, 10);
+        if (rand >= 5)
+        {
+
+        }
+        Destroy(gameObject, 0.5f);
+        isLive = false;
     }
 }
