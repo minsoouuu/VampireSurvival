@@ -15,9 +15,14 @@ public enum State
     Dead
 }
 
+
+
+
 public abstract class Player : MonoBehaviour
 {
     public State state = State.Stand;
+    WeaponData weaponData = WeaponData.None;
+    BulletDatas bulletData = BulletDatas.None; 
     public PlayerData playerData = new PlayerData();
 
     [HideInInspector] public List<Enemy> enemys;
@@ -36,6 +41,8 @@ public abstract class Player : MonoBehaviour
     [SerializeField] Transform bulletpos;
     [HideInInspector] public SpriteRenderer weapon;
     float curHp = 0;
+
+    [HideInInspector] public List<Sprite> myWeapon;
 
     public float HP
     {
@@ -156,6 +163,11 @@ public abstract class Player : MonoBehaviour
                 */
             }
         }
+    }
+
+    void SetWeapon(WeaponData weaponData)
+    {
+
     }
 
     void LevelUp()

@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] Image hpImage;
-    [SerializeField] Image expImage;
-    [SerializeField] GameObject deadImage;
-    [SerializeField] Player player;
+    [SerializeField] private Image hpImage;
+    [SerializeField] private Image expImage;
+    [SerializeField] private GameObject deadImage;
+    [SerializeField] private Player player;
+    [SerializeField] private List<Image> weaponImages;
     void Start()
     {
         player = FindObjectOfType<Player>();
@@ -22,6 +23,18 @@ public class UIController : MonoBehaviour
     }
     public void DieImage()
     {
-        deadImage.GetComponent<Image>().color = new Color(1f, 1f, 1f);
+        deadImage.GetComponent<Image>().color = new Color(1f, 1f, 1f,1f);
+    }
+
+    public void SetMyWeaponSet(Sprite sprite)
+    {
+        for (int i = 0; i < weaponImages.Count; i++)
+        {
+            if (weaponImages[i].GetComponent<Image>().sprite == null)
+            {
+                weaponImages[i].GetComponent<Image>().sprite = sprite;
+                break;
+            }
+        }
     }
 }
