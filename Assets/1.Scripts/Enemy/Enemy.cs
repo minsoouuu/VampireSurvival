@@ -68,7 +68,7 @@ public abstract class Enemy : MonoBehaviour
             return;
         }
 
-        if (HP < 0)
+        if (HP <= 0)
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
             GetComponent<Rigidbody2D>().simulated = false;

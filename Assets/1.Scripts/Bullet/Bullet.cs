@@ -20,8 +20,6 @@ public abstract class Bullet : MonoBehaviour
         transform.Translate(Vector3.up * Time.deltaTime * bulletData.speed);
     }
 
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Equals("Enemy"))

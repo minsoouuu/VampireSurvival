@@ -21,8 +21,6 @@ public enum State
 public abstract class Player : MonoBehaviour
 {
     public State state = State.Stand;
-    WeaponData weaponData = WeaponData.None;
-    BulletDatas bulletData = BulletDatas.None; 
     public PlayerData playerData = new PlayerData();
 
     [HideInInspector] public List<Enemy> enemys;
@@ -42,7 +40,7 @@ public abstract class Player : MonoBehaviour
     [HideInInspector] public SpriteRenderer weapon;
     float curHp = 0;
 
-    [HideInInspector] public List<Sprite> myWeapon;
+    public List<Image> myWeaponIvens;
 
     public float HP
     {
@@ -73,7 +71,7 @@ public abstract class Player : MonoBehaviour
         {
             return;
         }
-        if (curHp < 0)
+        if (curHp <= 0)
         {
             Debug.Log("»ç¸Á");
             GetComponent<SpriteAnimation>().SetSprite(deadSP, 0.1f);
@@ -112,7 +110,7 @@ public abstract class Player : MonoBehaviour
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
 
-        if (attackdelay > 0.3f)
+        if (attackdelay > 0.1f)
         {
             FindTarget();
             attackdelay = 0;
@@ -165,16 +163,22 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-    void SetWeapon(WeaponData weaponData)
+    public void SetInven(Sprite sprite)
     {
-
+        for (int i = 0; i < myWeaponIvens.Count; i++)
+        {
+            if (myWeaponIvens[i].GetComponent<Image>().sprite == null)
+            {
+                myWeaponIvens[i].GetComponent<Image>().sprite = sprite;
+                break;
+            }
+        }
     }
 
-    void LevelUp()
+    public void LevelUp()
     {
-        if (curExp >= maxExp)
-        {
-
-        }
+        curHp = playerData.maxHp;
+        curExp = 0;
+        maxExp += 50f;
     }
 }

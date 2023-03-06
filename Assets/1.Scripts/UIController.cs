@@ -13,28 +13,22 @@ public class UIController : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
+        int childs = transform.GetChild(0).GetChild(3).childCount;
+        for (int i = 0; i < childs; i++)
+        {
+            Debug.Log(transform.GetChild(0).GetChild(3).GetChild(i));
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         hpImage.fillAmount = player.HP / player.playerData.maxHp;
         expImage.fillAmount = player.Exp / player.maxExp;
+
+       
     }
     public void DieImage()
     {
         deadImage.GetComponent<Image>().color = new Color(1f, 1f, 1f,1f);
-    }
-
-    public void SetMyWeaponSet(Sprite sprite)
-    {
-        for (int i = 0; i < weaponImages.Count; i++)
-        {
-            if (weaponImages[i].GetComponent<Image>().sprite == null)
-            {
-                weaponImages[i].GetComponent<Image>().sprite = sprite;
-                break;
-            }
-        }
     }
 }

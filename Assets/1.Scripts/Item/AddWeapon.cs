@@ -27,13 +27,13 @@ enum BulletDatas
 
 public class AddWeapon : MonoBehaviour
 {
-    [HideInInspector] public Sprite selSprite;
+    public Image selSprite;
     [HideInInspector] public Sprite weaSprite;
-    [SerializeField] private Player player;
     [SerializeField] private Bullet bullet;
+
     void Start()
     {
-        selSprite = GetComponent<Image>().sprite;
+        selSprite = GetComponent<Image>();
     }
 
     void Update()
@@ -41,24 +41,24 @@ public class AddWeapon : MonoBehaviour
 
     }
 
+    public void SetSelSprite(Sprite sprite)
+    {
+        selSprite.sprite = sprite;
+    }
+
     public void OnClickWeapon()
     {
-        if (!player.myWeapon.Contains(weaSprite))
+        if (!GameManager.instance.player.myWeaponIvens.Contains(selSprite))
         {
             // 무기가 없을때
-            player.myWeapon.Add(weaSprite);
-            player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaSprite;
-            Debug.Log(selSprite);
-            GameManager.instance.uicont.SetMyWeaponSet(selSprite);
+            GameManager.instance.isLive = true;
+            transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+            GameManager.instance.player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaSprite;
+            GameManager.instance.player.SetInven(selSprite.sprite);
         }
         else
         {
-            // 무기가 이미 있을때
-
+            //무기가 있을때
         }
-        GetComponent<Image>().color = new Color(1f, 1f, 1f,1f / 255f);
-        transform.parent.gameObject.GetComponent<CreateWeapon>().weaponSprites.Remove(weaSprite);
-        transform.parent.gameObject.GetComponent<CreateWeapon>().selecSprites.Remove(selSprite);
-
     }
 }
