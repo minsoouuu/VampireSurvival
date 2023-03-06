@@ -35,11 +35,12 @@ public class CreateWeapon : MonoBehaviour
             int rand = Random.Range(0, selecSprites.Count);
             Sprite selSprite = selecSprites[rand];
             Sprite weaponSprite = weaponSprites[rand];
-            if (!selectedIcon.Contains(selSprite) && !selectedIcon.Contains(weaponSprite))
+
+            if (!selectedIcon.Contains(selSprite))
             {
                 selectedIcon.Add(selSprite);
                 selectIcon[i].sprite = selSprite;
-                selectIcon[i].GetComponent<AddWeapon>().SetSelSprite(selSprite);
+                //selectIcon[i].GetComponent<AddWeapon>().SetSelSprite(selSprite);
                 selectIcon[i].GetComponent<AddWeapon>().weaSprite = weaponSprite;
             }
         }

@@ -13,19 +13,12 @@ public class UIController : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-        int childs = transform.GetChild(0).GetChild(3).childCount;
-        for (int i = 0; i < childs; i++)
-        {
-            Debug.Log(transform.GetChild(0).GetChild(3).GetChild(i));
-        }
     }
 
     void Update()
     {
         hpImage.fillAmount = player.HP / player.playerData.maxHp;
         expImage.fillAmount = player.Exp / player.maxExp;
-
-       
     }
     public void DieImage()
     {

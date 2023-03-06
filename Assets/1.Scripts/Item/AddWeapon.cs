@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 enum WeaponData
 {
@@ -31,6 +32,8 @@ public class AddWeapon : MonoBehaviour
     [HideInInspector] public Sprite weaSprite;
     [SerializeField] private Bullet bullet;
 
+    [SerializeField] private List<Image> invens;
+
     void Start()
     {
         selSprite = GetComponent<Image>();
@@ -41,24 +44,46 @@ public class AddWeapon : MonoBehaviour
 
     }
 
-    public void SetSelSprite(Sprite sprite)
-    {
-        selSprite.sprite = sprite;
-    }
+    /*
+     if (!invens.Contains(selSprite))
+            {
+                invens[i].sprite = selSprite.sprite;
+
+                GameManager.instance.player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaSprite;
+                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+                GameManager.instance.isLive = true;
+                break;
+            }
+            else
+            {
+                invens[i].transform.GetChild(0).GetComponent<TextMeshPro>().text += 1;
+                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+                GameManager.instance.isLive = true;
+                break;
+            } 
+     */
 
     public void OnClickWeapon()
     {
-        if (!GameManager.instance.player.myWeaponIvens.Contains(selSprite))
+        for (int i = 0; i < invens.Count; i++)
         {
-            // 무기가 없을때
-            GameManager.instance.isLive = true;
-            transform.parent.GetComponent<CreateWeapon>().IsShow(false);
-            GameManager.instance.player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaSprite;
-            GameManager.instance.player.SetInven(selSprite.sprite);
-        }
-        else
-        {
-            //무기가 있을때
+            if(invens[i].sprite == null)
+            {
+                invens[i].sprite = selSprite.sprite;
+
+                GameManager.instance.player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaSprite;
+                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+                GameManager.instance.isLive = true;
+                return;
+            }
+            else if(invens[i].sprite == selSprite.sprite)
+            {
+                //invens[i].transform.GetChild(0).GetComponent<TMP_Text>().text += 1;
+                invens[i].GetComponent<WeaponState>().WeaponLV += 1;
+                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+                GameManager.instance.isLive = true;
+                break;
+            }
         }
     }
 }

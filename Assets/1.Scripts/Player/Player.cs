@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public struct PlayerData
 {
     public float speed;
@@ -76,6 +77,7 @@ public abstract class Player : MonoBehaviour
             Debug.Log("»ç¸Á");
             GetComponent<SpriteAnimation>().SetSprite(deadSP, 0.1f);
             //GameManager.instance.uicont.DieImage();
+            transform.GetChild(0).gameObject.SetActive(false);
             GameManager.instance.isLive = false;
         }
 
@@ -163,14 +165,21 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-    public void SetInven(Sprite sprite)
+    public void SetInven(Image sprite)
     {
         for (int i = 0; i < myWeaponIvens.Count; i++)
         {
-            if (myWeaponIvens[i].GetComponent<Image>().sprite == null)
+            if (!myWeaponIvens.Contains(sprite))
             {
-                myWeaponIvens[i].GetComponent<Image>().sprite = sprite;
-                break;
+                if (myWeaponIvens[i].GetComponent<Image>().sprite == null)
+                {
+                    myWeaponIvens[i].GetComponent<Image>().sprite = sprite.sprite;
+                    break;
+                }
+            }
+            else
+            {
+                myWeaponIvens[i].GetComponent<TextMeshPro>().text += 1;
             }
         }
     }
