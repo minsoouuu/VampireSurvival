@@ -74,8 +74,7 @@ public abstract class Enemy : MonoBehaviour
             GetComponent<Rigidbody2D>().simulated = false;
             isLive = false;
             Instantiate(expItems[Random.Range(0, expItems.Length)], transform).transform.SetParent(itemparent);
-            GetComponent<SpriteAnimation>().SetSprite(deadSprite, 0.00001f,Die);
-            Debug.Log(GetComponent<SpriteRenderer>().sprite);
+            GetComponent<SpriteAnimation>().SetSprite(deadSprite, 0.1f,Die);
         }
         attackdelayTime += Time.deltaTime;
         

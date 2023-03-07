@@ -11,6 +11,10 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private Transform itemtrans;
     int spawnIndex = 0;
     int enemyCount = 0;
+
+
+    [SerializeField] private GameObject box;
+
     void Start()
     {
         
@@ -19,6 +23,10 @@ public class EnemySpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Instantiate(box, spawnPoints).transform.SetParent(itemtrans);
+        }
         if (!GameManager.instance.isLive)
         {
             return;

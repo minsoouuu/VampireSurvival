@@ -8,10 +8,12 @@ public class EXP0 : Item
     {
         itemData.exp = 10f;
     }
-
-    // Start is called before the first frame update
     void Start()
     {
         Initalize();
+    }
+    public override void GetItem()
+    {
+        GameManager.instance.player.Exp += itemData.exp;
     }
 }
