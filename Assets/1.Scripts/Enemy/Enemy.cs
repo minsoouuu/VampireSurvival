@@ -25,7 +25,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Sprite hitSprite;
     [SerializeField] private GameObject[] expItems;
     [SerializeField] private GameObject boxItem;
-    [HideInInspector] public Transform itemparent;
+    [HideInInspector] public Transform itemParent;
+    [HideInInspector] public Transform boxParent;
     Player player;
     float curHp = 0;
     float maxHp = 100;
@@ -72,8 +73,8 @@ public abstract class Enemy : MonoBehaviour
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
             GetComponent<Rigidbody2D>().simulated = false;
+            ItemDrop();
             isLive = false;
-            Instantiate(expItems[Random.Range(0, expItems.Length)], transform).transform.SetParent(itemparent);
             GetComponent<SpriteAnimation>().SetSprite(deadSprite, 0.1f,Die);
         }
         attackdelayTime += Time.deltaTime;
@@ -127,5 +128,10 @@ public abstract class Enemy : MonoBehaviour
 
         }
         Destroy(gameObject);
+    }
+
+    void ItemDrop()
+    {
+        Instantiate(expItems[Random.Range(0, expItems.Length)], transform).transform.SetParent(itemParent);
     }
 }

@@ -15,17 +15,6 @@ public abstract class Item : MonoBehaviour
 
     public abstract void Initalize();
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public abstract void GetItem();
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,7 +22,6 @@ public abstract class Item : MonoBehaviour
         if (collision.tag == "Player")
         {
             GetItem();
-            Destroy(gameObject);
         }
     }
 }

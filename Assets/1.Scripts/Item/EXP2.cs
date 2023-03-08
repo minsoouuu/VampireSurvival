@@ -8,20 +8,13 @@ public class EXP2 : Item
     {
         itemData.exp = 30f;
     }
-
-   
     void Start()
     {
         Initalize();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public override void GetItem()
     {
         GameManager.instance.player.Exp += itemData.exp;
+        Destroy(gameObject);
     }
 }

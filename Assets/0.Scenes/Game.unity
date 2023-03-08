@@ -4680,6 +4680,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uicont: {fileID: 0}
+  weaponDatas:
+  - {fileID: 11400000, guid: 2761973a7a576934ca41637fca0a7033, type: 2}
+  - {fileID: 11400000, guid: 18748f8f470106448980de0cde23b5d6, type: 2}
+  - {fileID: 11400000, guid: ddd9951d57769414e82f00bd903878b7, type: 2}
+  - {fileID: 11400000, guid: a741bd0cf9d83214c83bf7903e1b2ce2, type: 2}
+  - {fileID: 11400000, guid: 3448de31815e73445a2b95e488967554, type: 2}
+  - {fileID: 11400000, guid: 14f1d5e39c975d640a81b1bb37113cf7, type: 2}
   player: {fileID: 1689502891}
   isLive: 1
 --- !u!4 &487086357
@@ -10503,6 +10510,7 @@ MonoBehaviour:
   spawnPoints: {fileID: 53287507}
   trans: {fileID: 0}
   itemtrans: {fileID: 1470184216}
+  boxtrans: {fileID: 1480995881}
   box: {fileID: 7664132833060252382, guid: 075b2399d946a1f488f2b898f5530819, type: 3}
 --- !u!4 &1005664898
 Transform:
@@ -11217,20 +11225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e75a3766081f94787152b1197caa52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selecSprites:
-  - {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  - {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  - {fileID: -344242777, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  - {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  - {fileID: 563336626, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  - {fileID: -762074860, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  weaponSprites:
-  - {fileID: 143021600, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: -1972582131, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: 1349035616, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: -144335857, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: 1772703093, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   selectIcon:
   - {fileID: 531185520}
   - {fileID: 1391570595}

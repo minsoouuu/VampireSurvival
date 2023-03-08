@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
 public class CreateWeapon : MonoBehaviour
 {
-    public List<Sprite> selecSprites;
-    public List<Sprite> weaponSprites;
+    List<WeaponData> weaponDatas;
     [SerializeField] private List<Image> selectIcon;
     [SerializeField] private List<Bullet> bullets;
     void Start()
     {
-
+        weaponDatas = GameManager.instance.weaponDatas.ToList();
     }
     void Update()
     {
@@ -23,7 +22,7 @@ public class CreateWeapon : MonoBehaviour
         {
             GameManager.instance.isLive = false;
             GameManager.instance.player.LevelUp();
-            SetSprite();
+            SetSprites();
             IsShow(true);
         }
     }
@@ -32,16 +31,29 @@ public class CreateWeapon : MonoBehaviour
         List<Sprite> selectedIcon = new List<Sprite>();
         for (int i = 0; i < selectIcon.Count; i++)
         {
-            int rand = Random.Range(0, selecSprites.Count);
-            Sprite selSprite = selecSprites[rand];
-            Sprite weaponSprite = weaponSprites[rand];
-
-            if (!selectedIcon.Contains(selSprite))
+            int rand = Random.Range(0, weaponDatas.Count);
+            WeaponData weaponData = weaponDatas[rand];
+            if (!selectedIcon.Contains(weaponData.SelectIcon))
             {
-                selectedIcon.Add(selSprite);
-                selectIcon[i].sprite = selSprite;
-                //selectIcon[i].GetComponent<AddWeapon>().SetSelSprite(selSprite);
-                selectIcon[i].GetComponent<AddWeapon>().weaSprite = weaponSprite;
+                selectedIcon.Add(weaponData.SelectIcon);
+                selectIcon[i].GetComponent<AddWeapon>().SetWeaponData(weaponData);
+            }
+        }
+    }
+
+    public void SetSprites()
+    {
+        List<Sprite> selectedIcon = new List<Sprite>();
+        int iconCnt = 0;
+        while (iconCnt < 3)
+        {
+            int rand = Random.Range(0, weaponDatas.Count);
+            WeaponData weaponData = weaponDatas[rand];
+            if (!selectedIcon.Contains(weaponData.SelectIcon))
+            {
+                selectedIcon.Add(weaponData.SelectIcon);
+                selectIcon[iconCnt].GetComponent<AddWeapon>().SetWeaponData(weaponData);
+                iconCnt++;
             }
         }
     }

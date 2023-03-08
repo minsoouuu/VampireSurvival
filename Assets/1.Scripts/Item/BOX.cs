@@ -4,31 +4,23 @@ using UnityEngine;
 
 public class BOX : Item
 {
+    List<GameObject> items_ = new List<GameObject>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public override void Initalize()
     {
-
+        itemData.exp = 10f;
     }
+
     public override void GetItem()
     {
         GameObject items = GameObject.Find("ItemParent");
-
         int itemEa = items.transform.childCount;
 
         for (int i = 0; i < itemEa; i++)
         {
             StartCoroutine(ItemMove(items.transform.GetChild(i).gameObject));
+            items_.Add(items.transform.GetChild(i).gameObject);
         }
     }
 
@@ -38,8 +30,13 @@ public class BOX : Item
 
         while (item != null)
         {
-            item.transform.position = Vector3.MoveTowards(item.transform.position, GameManager.instance.player.transform.position, Time.deltaTime);
-            yield return new WaitForSeconds(0.1f);
+            if (!GameManager.instance.isLive)
+                yield break;
+            item.transform.position = Vector3.MoveTowards(item.transform.position, GameManager.instance.player.transform.position, 0.1f);
+            yield return new WaitForSeconds(0.01f);
         }
+
+        yield return new WaitForSeconds(items_.Count * 1f);
+        Destroy(gameObject);
     }
 }
