@@ -8,17 +8,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image hpImage;
     [SerializeField] private Image expImage;
     [SerializeField] private GameObject deadImage;
-    [SerializeField] private Player player;
-    [SerializeField] private List<Image> weaponImages;
-    void Start()
-    {
-        player = FindObjectOfType<Player>();
-    }
+    //[SerializeField] private List<Image> weaponImages;
 
     void Update()
     {
-        hpImage.fillAmount = player.HP / player.playerData.maxHp;
-        expImage.fillAmount = player.Exp / player.maxExp;
+        hpImage.fillAmount = GameManager.instance.player.HP / GameManager.instance.player.playerData.maxHp;
+        expImage.fillAmount = GameManager.instance.player.Exp / GameManager.instance.player.maxExp;
     }
     public void DieImage()
     {

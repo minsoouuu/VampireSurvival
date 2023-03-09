@@ -56,6 +56,7 @@ public class EnemySpawnController : MonoBehaviour
         enemy.Init();
         enemy.itemParent = itemtrans;
         enemy.boxParent = boxtrans;
+        //GameManager.instance.player.transform.GetChild(0).GetComponent<Weapon>().enemys.Add(enemy);
         GameManager.instance.player.enemys.Add(enemy);
         //enemy.transform.SetParent(trans);
     }

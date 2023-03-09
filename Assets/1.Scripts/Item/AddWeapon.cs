@@ -58,7 +58,7 @@ public class AddWeapon : MonoBehaviour
             {
                 invens[i].sprite = selSprite.sprite;
 
-                GameManager.instance.player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaponData.Weapon.GetComponent<SpriteRenderer>().sprite;
+                //GameManager.instance.player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaponData.Weapon.GetComponent<SpriteRenderer>().sprite;
                 transform.parent.GetComponent<CreateWeapon>().IsShow(false);
                 GameManager.instance.isLive = true;
                 return;

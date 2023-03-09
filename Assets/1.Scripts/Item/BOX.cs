@@ -19,24 +19,7 @@ public class BOX : Item
 
         for (int i = 0; i < itemEa; i++)
         {
-            StartCoroutine(ItemMove(items.transform.GetChild(i).gameObject));
-            items_.Add(items.transform.GetChild(i).gameObject);
+            items.transform.GetChild(i).GetComponent<Item>().GetMagItem();
         }
-    }
-
-    IEnumerator ItemMove(GameObject item)
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        while (item != null)
-        {
-            if (!GameManager.instance.isLive)
-                yield break;
-            item.transform.position = Vector3.MoveTowards(item.transform.position, GameManager.instance.player.transform.position, 0.1f);
-            yield return new WaitForSeconds(0.01f);
-        }
-
-        yield return new WaitForSeconds(items_.Count * 1f);
-        Destroy(gameObject);
     }
 }

@@ -15,6 +15,5 @@ public class EXP0 : Item
     public override void GetItem()
     {
         GameManager.instance.player.Exp += itemData.exp;
-        Destroy(gameObject);
     }
 }

@@ -47,7 +47,6 @@ public abstract class Player : MonoBehaviour
     {
         get { return curHp; }
         set { curHp = value; }
-        
     }
     float curExp = 0;
     [HideInInspector] public float maxExp = 100f;
@@ -118,7 +117,7 @@ public abstract class Player : MonoBehaviour
             attackdelay = 0;
         }
     }
-
+    
     void FindTarget()
     {
         
@@ -164,6 +163,7 @@ public abstract class Player : MonoBehaviour
             }
         }
     }
+    
 
     public void SetInven(Image sprite)
     {
