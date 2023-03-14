@@ -16,32 +16,31 @@ public enum State
     Dead
 }
 
-
-
-
 public abstract class Player : MonoBehaviour
 {
     public State state = State.Stand;
     public PlayerData playerData = new PlayerData();
 
     [HideInInspector] public List<Enemy> enemys;
+    protected SpriteRenderer spriteRenderer;
 
     [SerializeField] protected List<Sprite> standSP;
     [SerializeField] protected List<Sprite> runSP;
     [SerializeField] protected List<Sprite> deadSP;
-    protected SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite[] weaponSprites;
-    Animation anim;
+    [HideInInspector] public SpriteRenderer weapon;
     [HideInInspector] public float x;
     [HideInInspector] public float y;
     [SerializeField] private Bullet bullet;
     [SerializeField] private Transform bulletparent;
-    float attackdelay = 0;
     [SerializeField] Transform bulletpos;
-    [HideInInspector] public SpriteRenderer weapon;
+    Animation anim;
+    float attackdelay = 0;
     float curHp = 0;
 
     public List<Image> myWeaponIvens;
+
+    WeaponData weaponData;
 
     public float HP
     {
@@ -62,7 +61,8 @@ public abstract class Player : MonoBehaviour
         HP = playerData.maxHp;
         weapon = transform.GetChild(0).GetComponent<SpriteRenderer>();
         bulletpos = transform.GetChild(1);
-        weapon.sprite = weaponSprites[0];
+        SetWeaponData(GameManager.instance.weaponDatas[0]);
+        weapon.sprite = weaponData.Weapon.GetComponent<SpriteRenderer>().sprite;
     }
 
     void Update()
@@ -73,7 +73,6 @@ public abstract class Player : MonoBehaviour
         }
         if (curHp <= 0)
         {
-            Debug.Log("»ç¸Á");
             GetComponent<SpriteAnimation>().SetSprite(deadSP, 0.1f);
             //GameManager.instance.uicont.DieImage();
             transform.GetChild(0).gameObject.SetActive(false);
@@ -111,16 +110,14 @@ public abstract class Player : MonoBehaviour
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
 
-        if (attackdelay > 0.1f)
+        if (attackdelay > weaponData.Weapon.weapons.shotDelay)
         {
             FindTarget();
             attackdelay = 0;
         }
     }
-    
     void FindTarget()
     {
-        
         if (enemys.Count != 0)
         {
             Enemy target = null;
@@ -141,47 +138,23 @@ public abstract class Player : MonoBehaviour
                     }
                 }
             }
-
             float targetdis = Vector3.Distance(transform.position, target.transform.position);
             if (targetdis < 10)
             {
-                
                 Vector3 dir = target.transform.position - transform.position;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 bulletpos.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-                Bullet bt = Instantiate(bullet, bulletpos);
+                Bullet bt = Instantiate(weaponData.Bullet, bulletpos);
                 bt.transform.SetParent(bulletparent);
-                
-                /*
-                Vector3 dir = target.transform.position - transform.position;
-                
-                Bullet bb = Instantiate(bullet, bulletpos);
-                bulletpos.transform.rotation = qt;
-                bb.transform.SetParent(bulletparent);
-                */
             }
         }
     }
-    
-
-    public void SetInven(Image sprite)
+   
+    public void SetWeaponData(WeaponData weaponData)
     {
-        for (int i = 0; i < myWeaponIvens.Count; i++)
-        {
-            if (!myWeaponIvens.Contains(sprite))
-            {
-                if (myWeaponIvens[i].GetComponent<Image>().sprite == null)
-                {
-                    myWeaponIvens[i].GetComponent<Image>().sprite = sprite.sprite;
-                    break;
-                }
-            }
-            else
-            {
-                myWeaponIvens[i].GetComponent<TextMeshPro>().text += 1;
-            }
-        }
+        this.weaponData = weaponData;
+        this.weaponData.Weapon.Initailize();
     }
 
     public void LevelUp()

@@ -13,10 +13,5 @@ public class WeaponData : ScriptableObject
 
     [SerializeField] private Sprite selectIcon;
     public Sprite SelectIcon { get { return selectIcon; } }
-    
-    [SerializeField] private float damage;
-    public float Damage { get { return damage; } }
-
-    [SerializeField] private float shotDelay;
-    public float ShotDelay { get { return shotDelay; } }
+   
 }

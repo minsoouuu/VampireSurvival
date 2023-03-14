@@ -18,7 +18,7 @@ public class CreateWeapon : MonoBehaviour
         {
             GameManager.instance.player.Exp += 100;
         }
-        if (GameManager.instance.player.Exp >=GameManager.instance.player.maxExp)
+        if (GameManager.instance.player.Exp >= GameManager.instance.player.maxExp)
         {
             GameManager.instance.isLive = false;
             GameManager.instance.player.LevelUp();

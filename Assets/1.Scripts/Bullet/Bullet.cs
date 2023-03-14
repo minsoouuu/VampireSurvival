@@ -14,12 +14,11 @@ public abstract class Bullet : MonoBehaviour
 
     public abstract void Initalize();
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //transform.Translate(dir.normalized* Time.deltaTime * bulletData.speed);
         transform.Translate(Vector3.up * Time.deltaTime * bulletData.speed);
-    }
 
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Equals("Enemy"))
@@ -31,7 +30,6 @@ public abstract class Bullet : MonoBehaviour
             }
         }
     }
-
     public void SetDir(Quaternion dir )
     {
         transform.rotation = dir;

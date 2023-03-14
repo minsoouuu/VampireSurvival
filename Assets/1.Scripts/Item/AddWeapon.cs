@@ -26,30 +26,6 @@ public class AddWeapon : MonoBehaviour
         selSprite = GetComponent<Image>();
     }
 
-    void Update()
-    {
-
-    }
-
-    /*
-     if (!invens.Contains(selSprite))
-            {
-                invens[i].sprite = selSprite.sprite;
-
-                GameManager.instance.player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaSprite;
-                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
-                GameManager.instance.isLive = true;
-                break;
-            }
-            else
-            {
-                invens[i].transform.GetChild(0).GetComponent<TextMeshPro>().text += 1;
-                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
-                GameManager.instance.isLive = true;
-                break;
-            } 
-     */
-
     public void OnClickWeapon()
     {
         for (int i = 0; i < invens.Count; i++)
@@ -58,7 +34,6 @@ public class AddWeapon : MonoBehaviour
             {
                 invens[i].sprite = selSprite.sprite;
 
-                //GameManager.instance.player.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = weaponData.Weapon.GetComponent<SpriteRenderer>().sprite;
                 transform.parent.GetComponent<CreateWeapon>().IsShow(false);
                 GameManager.instance.isLive = true;
                 return;
@@ -71,8 +46,8 @@ public class AddWeapon : MonoBehaviour
                 break;
             }
         }
+        GameManager.instance.player.SetWeaponData(weaponData);
     }
-
     public void SetWeaponData(WeaponData weaponData)
     {
         if (selSprite == null)

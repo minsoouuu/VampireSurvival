@@ -4682,11 +4682,6 @@ MonoBehaviour:
   uicont: {fileID: 0}
   weaponDatas:
   - {fileID: 11400000, guid: 2761973a7a576934ca41637fca0a7033, type: 2}
-  - {fileID: 11400000, guid: 18748f8f470106448980de0cde23b5d6, type: 2}
-  - {fileID: 11400000, guid: ddd9951d57769414e82f00bd903878b7, type: 2}
-  - {fileID: 11400000, guid: a741bd0cf9d83214c83bf7903e1b2ce2, type: 2}
-  - {fileID: 11400000, guid: 3448de31815e73445a2b95e488967554, type: 2}
-  - {fileID: 11400000, guid: 14f1d5e39c975d640a81b1bb37113cf7, type: 2}
   player: {fileID: 1689502891}
   isLive: 1
 --- !u!4 &487086357
@@ -10996,14 +10991,6 @@ MonoBehaviour:
   hpImage: {fileID: 695725507}
   expImage: {fileID: 1805884943}
   deadImage: {fileID: 710687372}
-  player: {fileID: 0}
-  weaponImages:
-  - {fileID: 169362762}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &1299648602
 Transform:
   m_ObjectHideFlags: 0
@@ -11746,7 +11733,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 143021600, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  m_Sprite: {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
