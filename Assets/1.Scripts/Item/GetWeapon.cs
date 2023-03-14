@@ -12,12 +12,11 @@ using TMPro;
     Shotgun
  */
 
-public class AddWeapon : MonoBehaviour
+public class GetWeapon : MonoBehaviour
 {
     public Image selSprite;
-    [HideInInspector] public Sprite weaSprite;
-    [SerializeField] private Bullet bullet;
     [SerializeField] private List<Image> invens;
+    [SerializeField] private List<InvenTory> inven;
 
     WeaponData weaponData;
 
@@ -40,12 +39,32 @@ public class AddWeapon : MonoBehaviour
             }
             else if(invens[i].sprite == selSprite.sprite)
             {
-                invens[i].GetComponent<WeaponState>().WeaponLV += 1;
+                invens[i].GetComponent<InvenTory>().WeaponLV += 1;
                 transform.parent.GetComponent<CreateWeapon>().IsShow(false);
                 GameManager.instance.isLive = true;
                 break;
             }
         }
+        GameManager.instance.player.SetWeaponData(weaponData);
+    }
+
+    public void OnTest()
+    {
+        for (int i = 0; i < inven.Count; i++)
+        {
+            if (inven[i].WeaponData == null)
+            {
+                inven[i].WeaponData = weaponData;
+                return;
+            }
+            else if (inven[i].GetComponent<Image>().sprite == weaponData.SelectIcon)
+            {
+                inven[i].WeaponLV += 1;
+                break;
+            }
+        }
+        transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+        GameManager.instance.isLive = true;
         GameManager.instance.player.SetWeaponData(weaponData);
     }
     public void SetWeaponData(WeaponData weaponData)

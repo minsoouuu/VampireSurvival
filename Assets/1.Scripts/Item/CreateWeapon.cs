@@ -7,7 +7,6 @@ public class CreateWeapon : MonoBehaviour
 {
     List<WeaponData> weaponDatas;
     [SerializeField] private List<Image> selectIcon;
-    [SerializeField] private List<Bullet> bullets;
     void Start()
     {
         weaponDatas = GameManager.instance.weaponDatas.ToList();
@@ -22,26 +21,11 @@ public class CreateWeapon : MonoBehaviour
         {
             GameManager.instance.isLive = false;
             GameManager.instance.player.LevelUp();
-            SetSprites();
+            SetSprite();
             IsShow(true);
         }
     }
     public void SetSprite()
-    {
-        List<Sprite> selectedIcon = new List<Sprite>();
-        for (int i = 0; i < selectIcon.Count; i++)
-        {
-            int rand = Random.Range(0, weaponDatas.Count);
-            WeaponData weaponData = weaponDatas[rand];
-            if (!selectedIcon.Contains(weaponData.SelectIcon))
-            {
-                selectedIcon.Add(weaponData.SelectIcon);
-                selectIcon[i].GetComponent<AddWeapon>().SetWeaponData(weaponData);
-            }
-        }
-    }
-
-    public void SetSprites()
     {
         List<Sprite> selectedIcon = new List<Sprite>();
         int iconCnt = 0;
@@ -52,12 +36,11 @@ public class CreateWeapon : MonoBehaviour
             if (!selectedIcon.Contains(weaponData.SelectIcon))
             {
                 selectedIcon.Add(weaponData.SelectIcon);
-                selectIcon[iconCnt].GetComponent<AddWeapon>().SetWeaponData(weaponData);
+                selectIcon[iconCnt].GetComponent<GetWeapon>().SetWeaponData(weaponData);
                 iconCnt++;
             }
         }
     }
-
     public void IsShow(bool ison)
     {
         foreach (var item in selectIcon)

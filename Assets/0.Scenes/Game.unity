@@ -5101,8 +5101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selSprite: {fileID: 0}
-  weaSprite: {fileID: 0}
-  bullet: {fileID: 0}
   invens:
   - {fileID: 169362762}
   - {fileID: 1030930182}
@@ -5110,6 +5108,13 @@ MonoBehaviour:
   - {fileID: 496615368}
   - {fileID: 694766283}
   - {fileID: 737388187}
+  inven:
+  - {fileID: 169362764}
+  - {fileID: 1030930183}
+  - {fileID: 110910425}
+  - {fileID: 496615369}
+  - {fileID: 694766284}
+  - {fileID: 737388190}
 --- !u!114 &531185523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5272,8 +5277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selSprite: {fileID: 0}
-  weaSprite: {fileID: 0}
-  bullet: {fileID: 0}
   invens:
   - {fileID: 169362762}
   - {fileID: 1030930182}
@@ -5281,6 +5284,13 @@ MonoBehaviour:
   - {fileID: 496615368}
   - {fileID: 694766283}
   - {fileID: 737388187}
+  inven:
+  - {fileID: 169362764}
+  - {fileID: 1030930183}
+  - {fileID: 110910425}
+  - {fileID: 496615369}
+  - {fileID: 694766284}
+  - {fileID: 737388190}
 --- !u!114 &547150212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11216,13 +11226,6 @@ MonoBehaviour:
   - {fileID: 531185520}
   - {fileID: 1391570595}
   - {fileID: 547150213}
-  bullets:
-  - {fileID: 3224483802320869786, guid: e59e56b1d25f56348998a33c100a0c59, type: 3}
-  - {fileID: 7362790857926485898, guid: 6bc37a6cf27bc1a4c8a6f49503202d1a, type: 3}
-  - {fileID: 2439980009685115450, guid: 12cd80a286a5dff4f8b945f17d23ee57, type: 3}
-  - {fileID: 7116345048728960727, guid: 703b0046033f02b49a0099d80ec0c498, type: 3}
-  - {fileID: 6229894050468439013, guid: 6b18a621cbc59ec4bb137593c597d827, type: 3}
-  - {fileID: -4692402272211753750, guid: cd16c8b41a2f6fa40a192efceaf89abc, type: 3}
 --- !u!1 &1391570591
 GameObject:
   m_ObjectHideFlags: 0
@@ -11277,8 +11280,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selSprite: {fileID: 0}
-  weaSprite: {fileID: 0}
-  bullet: {fileID: 0}
   invens:
   - {fileID: 169362762}
   - {fileID: 1030930182}
@@ -11286,6 +11287,13 @@ MonoBehaviour:
   - {fileID: 496615368}
   - {fileID: 694766283}
   - {fileID: 737388187}
+  inven:
+  - {fileID: 169362764}
+  - {fileID: 1030930183}
+  - {fileID: 110910425}
+  - {fileID: 496615369}
+  - {fileID: 694766284}
+  - {fileID: 737388190}
 --- !u!114 &1391570594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11653,7 +11661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480995880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.008384, y: 0.26589382, z: 24844.564}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11733,7 +11741,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11741,7 +11749,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1689502890
@@ -11804,16 +11812,10 @@ MonoBehaviour:
   x: 0
   y: 0
   bullet: {fileID: 3224483802320869786, guid: e59e56b1d25f56348998a33c100a0c59, type: 3}
+  weaponPos: {fileID: 1554203523}
   bulletparent: {fileID: 1413103140}
   bulletpos: {fileID: 0}
-  weapon: {fileID: 0}
-  myWeaponIvens:
-  - {fileID: 169362762}
-  - {fileID: 1030930182}
-  - {fileID: 110910424}
-  - {fileID: 496615368}
-  - {fileID: 694766283}
-  - {fileID: 737388187}
+  weaponDatas: []
   maxExp: 100
 --- !u!114 &1689502892
 MonoBehaviour:

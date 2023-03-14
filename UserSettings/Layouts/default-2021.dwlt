@@ -41,7 +41,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 631
-    width: 564
+    width: 306
     height: 316
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
@@ -69,12 +69,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1183
     y: 0
-    width: 564
+    width: 306
     height: 947
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 52
+  controlID: 108
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 153
+  controlID: 174
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 127
+  controlID: 80
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -241,7 +241,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 564
+    width: 306
     height: 631
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -265,9 +265,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1747
+    x: 1489
     y: 0
-    width: 173
+    width: 431
     height: 947
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
@@ -322,8 +322,8 @@ MonoBehaviour:
     y: 335
     width: 951
     height: 612
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -379,7 +379,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1183
     y: 704
-    width: 562
+    width: 304
     height: 295
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -462,9 +462,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1747
+    x: 1489
     y: 73
-    width: 172
+    width: 430
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -505,7 +505,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1183
     y: 73
-    width: 562
+    width: 304
     height: 610
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -524,22 +524,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/1.Scripts/Bullet
+    - Assets/1.Scripts/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/1.Scripts/Bullet
+  - Assets/1.Scripts/Player
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\user\Desktop\VampireSurvival
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 24630000
-    m_LastClickedID: 25380
-    m_ExpandedIDs: 000000004c620000506200005a62000000ca9a3bffffff7f
+    m_SelectedIDs: 64620000
+    m_LastClickedID: 25188
+    m_ExpandedIDs: 00000000186200002c62000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -567,7 +567,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 0000000018620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -622,7 +622,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 209
+  m_DirectoriesAreaWidth: 161
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -962,9 +962,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.3193376, y: 0.14256933, z: 8021.8022}
+    m_Target: {x: -5.008384, y: 0.26589382, z: 24844.564}
     speed: 2
-    m_Value: {x: 1.3193376, y: 0.14256933, z: 8021.8022}
+    m_Value: {x: -5.008384, y: 0.26589382, z: 24844.564}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1015,9 +1015,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.5606513
+    m_Target: 10
     speed: 2
-    m_Value: 5.5606513
+    m_Value: 10
   m_Ortho:
     m_Target: 1
     speed: 2

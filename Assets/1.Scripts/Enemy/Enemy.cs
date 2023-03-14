@@ -114,7 +114,7 @@ public abstract class Enemy : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
+            //collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
         }
     }
 
