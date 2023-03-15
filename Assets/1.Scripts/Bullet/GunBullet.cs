@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet0 : Bullet
+public class GunBullet : Bullet
 {
     public override void Initalize()
     {

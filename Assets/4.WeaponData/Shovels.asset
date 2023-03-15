@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb0c6f5217cb854daea8efc48a2f225, type: 3}
   m_Name: Shovels
   m_EditorClassIdentifier: 
-  weapon: {fileID: -7364391016992619048, guid: 0798b1811206ffe4280dc5cac1582f64, type: 3}
+  weapon: {fileID: 2429542521140730689, guid: 0798b1811206ffe4280dc5cac1582f64, type: 3}
   selectIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  damage: 50
-  shotDelay: 2

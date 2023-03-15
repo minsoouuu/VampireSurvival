@@ -135,7 +135,6 @@ public abstract class Player : MonoBehaviour
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             bulletpos.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         }
-        
     }
     void FindTarget()
     {
