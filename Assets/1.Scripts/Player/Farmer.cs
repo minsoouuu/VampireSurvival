@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Farmer : Player
 {
-    private void Start()
+    private void Awake()
     {
         Initalize();
     }

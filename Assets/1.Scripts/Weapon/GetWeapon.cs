@@ -27,6 +27,7 @@ public class GetWeapon : MonoBehaviour
 
     public void OnClickWeapon()
     {
+        /*
         for (int i = 0; i < invens.Count; i++)
         {
             if(invens[i].sprite == null)
@@ -46,6 +47,7 @@ public class GetWeapon : MonoBehaviour
             }
         }
         GameManager.instance.player.SetWeaponData(weaponData);
+        */
     }
 
     public void OnTest()
@@ -55,6 +57,8 @@ public class GetWeapon : MonoBehaviour
             if (inven[i].WeaponData == null)
             {
                 inven[i].WeaponData = weaponData;
+                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+                GameManager.instance.isLive = true;
                 return;
             }
             else if (inven[i].GetComponent<Image>().sprite == weaponData.SelectIcon)
@@ -65,7 +69,6 @@ public class GetWeapon : MonoBehaviour
         }
         transform.parent.GetComponent<CreateWeapon>().IsShow(false);
         GameManager.instance.isLive = true;
-        GameManager.instance.player.SetWeaponData(weaponData);
     }
     public void SetWeaponData(WeaponData weaponData)
     {

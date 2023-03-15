@@ -11,7 +11,6 @@ public struct BulletData
 public abstract class Bullet : MonoBehaviour
 {
     public BulletData bulletData = new BulletData();
-
     public abstract void Initalize();
 
     private void FixedUpdate()
@@ -21,7 +20,7 @@ public abstract class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag.Equals("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.GetComponent<Enemy>().HP -= bulletData.damage;
             if (collision != null)
@@ -29,10 +28,5 @@ public abstract class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-    public void SetDir(Quaternion dir )
-    {
-        transform.rotation = dir;
-        //Quaternion qqq = Quaternion.Euler(dir);
     }
 }

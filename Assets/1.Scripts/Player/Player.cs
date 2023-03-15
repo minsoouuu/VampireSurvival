@@ -28,7 +28,6 @@ public abstract class Player : MonoBehaviour
     [SerializeField] private Sprite[] weaponSprites;
     [HideInInspector] public float x;
     [HideInInspector] public float y;
-    [SerializeField] private Bullet bullet;
     public GameObject weaponPos;
     public Transform bulletparent;
     public Transform bulletpos;
@@ -36,7 +35,7 @@ public abstract class Player : MonoBehaviour
     float attackdelay = 0;
     float curHp = 0;
     [HideInInspector] public List<WeaponData> weaponDatas;
-    Enemy target = null;
+    [HideInInspector] public Enemy target = null;
 
     public float HP
     {
@@ -53,7 +52,8 @@ public abstract class Player : MonoBehaviour
     public abstract void Initalize();
     void Start()
     {
-        CreateWeapon(GameManager.instance.weaponDatas[0]);
+        //weaponDatas.Add(GameManager.instance.weaponDatas[0]);
+        //CreateWeapon(weaponDatas[0]);
         HP = playerData.maxHp;
         bulletpos = transform.GetChild(1);
     }
@@ -65,6 +65,7 @@ public abstract class Player : MonoBehaviour
         }
         if (curHp <= 0)
         {
+            
             GetComponent<SpriteAnimation>().SetSprite(deadSP, 0.1f);
             //GameManager.instance.uicont.DieImage();
             transform.GetChild(0).gameObject.SetActive(false);
@@ -79,10 +80,9 @@ public abstract class Player : MonoBehaviour
         Vector3 dir = Vector3.Normalize(ve2);
         transform.position += dir * Time.deltaTime * playerData.speed;
 
-
         if (weaponPos.transform.childCount >= 1)
         {
-            int weaponChild = weaponPos.gameObject.transform.childCount;
+            int weaponChild = weaponPos.transform.childCount;
 
             if (x < 0 && GetComponent<SpriteRenderer>().flipX != true)
             {
@@ -114,8 +114,6 @@ public abstract class Player : MonoBehaviour
                 
             }
         }
-
-        
         if ((x != 0 || y != 0) && state != State.Run)
         {
             state = State.Run;
@@ -127,6 +125,17 @@ public abstract class Player : MonoBehaviour
             GetComponent<SpriteAnimation>().SetSprite(standSP, 0.1f);
         }
         FindTarget();
+        SetDirWeapon();
+    }
+    void SetDirWeapon()
+    {
+        if (enemys.Count >= 1)
+        {
+            Vector3 dir = target.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            bulletpos.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        }
+        
     }
     void FindTarget()
     {
@@ -137,10 +146,6 @@ public abstract class Player : MonoBehaviour
                 if (target == null)
                 {
                     target = enemy;
-                    foreach (var item in weaponDatas)
-                    {
-                        item.Weapon.target = enemy;
-                    }
                 }
                 else
                 {
@@ -149,10 +154,6 @@ public abstract class Player : MonoBehaviour
                     if (dis > enemydis)
                     {
                         target = enemy;
-                        foreach (var item in weaponDatas)
-                        {
-                            item.Weapon.target = enemy;
-                        }
                     }
                 }
             }
@@ -166,7 +167,6 @@ public abstract class Player : MonoBehaviour
     void CreateWeapon(WeaponData weaponData)
     {
         Weapon weapon = Instantiate(weaponData.Weapon, weaponPos.transform);
-        weapon.Initailize();
     }
     public void LevelUp()
     {

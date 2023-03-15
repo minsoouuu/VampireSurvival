@@ -28,6 +28,15 @@ public class CreateWeapon : MonoBehaviour
     public void SetSprite()
     {
         List<Sprite> selectedIcon = new List<Sprite>();
+        
+        for (int i = 0; i < selectIcon.Count; i++)
+        {
+            WeaponData weaponData = weaponDatas[0];
+
+            selectIcon[i].GetComponent<GetWeapon>().SetWeaponData(weaponData);
+        }
+        
+        /*
         int iconCnt = 0;
         while (iconCnt < 3)
         {
@@ -40,6 +49,7 @@ public class CreateWeapon : MonoBehaviour
                 iconCnt++;
             }
         }
+        */
     }
     public void IsShow(bool ison)
     {

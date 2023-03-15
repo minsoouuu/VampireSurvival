@@ -5160,8 +5160,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 531185522}
-        m_TargetAssemblyTypeName: AddWeapon, Assembly-CSharp
-        m_MethodName: OnClickWeapon
+        m_TargetAssemblyTypeName: GetWeapon, Assembly-CSharp
+        m_MethodName: OnTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5336,8 +5336,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 547150211}
-        m_TargetAssemblyTypeName: AddWeapon, Assembly-CSharp
-        m_MethodName: OnClickWeapon
+        m_TargetAssemblyTypeName: GetWeapon, Assembly-CSharp
+        m_MethodName: OnTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11339,8 +11339,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1391570593}
-        m_TargetAssemblyTypeName: AddWeapon, Assembly-CSharp
-        m_MethodName: OnClickWeapon
+        m_TargetAssemblyTypeName: GetWeapon, Assembly-CSharp
+        m_MethodName: OnTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11811,11 +11811,11 @@ MonoBehaviour:
   - {fileID: 1772703093, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   x: 0
   y: 0
-  bullet: {fileID: 3224483802320869786, guid: e59e56b1d25f56348998a33c100a0c59, type: 3}
   weaponPos: {fileID: 1554203523}
   bulletparent: {fileID: 1413103140}
   bulletpos: {fileID: 0}
   weaponDatas: []
+  target: {fileID: 0}
   maxExp: 100
 --- !u!114 &1689502892
 MonoBehaviour:

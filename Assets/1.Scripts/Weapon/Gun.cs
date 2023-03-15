@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Gun : Weapon
 {
+    private void Start()
+    {
+        Initailize();
+    }
     public override void Initailize()
     {
         weapons.damage = 50f;
@@ -12,11 +16,6 @@ public class Gun : Weapon
     }
     public override void Attack()
     {
-       
-        Vector3 dir = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        GameManager.instance.player.bulletpos.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        
         Bullet bt = Instantiate(bullet,GameManager.instance.player.bulletpos);
         bt.transform.SetParent(GameManager.instance.player.bulletparent);
     }

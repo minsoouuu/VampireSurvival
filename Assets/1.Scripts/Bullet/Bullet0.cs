@@ -6,7 +6,7 @@ public class Bullet0 : Bullet
 {
     public override void Initalize()
     {
-        bulletData.damage = 100f;
+        bulletData.damage = 10f;
         bulletData.speed = 5f;
     }
     private void Start()

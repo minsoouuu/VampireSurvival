@@ -101,7 +101,7 @@ public abstract class Enemy : MonoBehaviour
             GetComponent<SpriteAnimation>().SetSprite(runSprites, 0.1f);
         }
     }
-
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -114,18 +114,18 @@ public abstract class Enemy : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Player")
         {
-            //collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
+            collision.gameObject.GetComponent<Player>().HP -= enemyData.damage;
         }
     }
-
     void Die()
     {
         GameManager.instance.player.enemys.Remove(this);
         
         int rand = Random.Range(0, 10);
-        if (rand >= 5)
-        {
 
+        if (rand >= 2)
+        {
+            // È®·ü µå¶ø
         }
         Destroy(gameObject);
     }

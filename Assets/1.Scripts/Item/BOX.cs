@@ -11,7 +11,6 @@ public class BOX : Item
     {
         itemData.exp = 10f;
     }
-
     public override void GetItem()
     {
         GameObject items = GameObject.Find("ItemParent");

@@ -8,7 +8,6 @@ public struct ItemData
 {
     public float exp;
 }
-
 public abstract class Item : MonoBehaviour
 {
     public ItemData itemData = new ItemData();

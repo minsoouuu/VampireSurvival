@@ -10,5 +10,4 @@ public class WeaponData : ScriptableObject
 
     [SerializeField] private Sprite selectIcon;
     public Sprite SelectIcon { get { return selectIcon; } }
-   
 }
