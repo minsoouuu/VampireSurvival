@@ -14,20 +14,14 @@ public abstract class Bullet : MonoBehaviour
     public abstract void Initalize();
     private void FixedUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
         Attack();
     }
-
     public abstract void Attack();
-
+    public abstract void Hit(Collider2D coll);
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            collision.GetComponent<Enemy>().HP -= bulletData.damage;
-            if (collision != null)
-            {
-                Destroy(gameObject);
-            }
-        }
+        Hit(collision);
     }
 }
