@@ -36,6 +36,7 @@ public class CreateWeapon : MonoBehaviour
             selectIcon[i].GetComponent<GetWeapon>().SetWeaponData(weaponData);
         }
         */
+
         for (int i = 0; i < selectIcon.Count; i++)
         {
             int rand = Random.Range(0, weaponDatas.Count);
@@ -43,7 +44,7 @@ public class CreateWeapon : MonoBehaviour
             selectIcon[i].GetComponent<GetWeapon>().SetWeaponData(weaponData);
         }
 
-       
+        /*
         int iconCnt = 0;
         while (iconCnt < 3)
         {
@@ -56,6 +57,7 @@ public class CreateWeapon : MonoBehaviour
                 iconCnt++;
             }
         }
+        */
     }
     public void IsShow(bool ison)
     {

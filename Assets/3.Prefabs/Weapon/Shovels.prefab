@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c98cf214ce04741a70a38c28fbab55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3224483802320869786, guid: e59e56b1d25f56348998a33c100a0c59, type: 3}
+  bullet: {fileID: 8418360038441322749, guid: e59e56b1d25f56348998a33c100a0c59, type: 3}
   shovelsDir: {fileID: 506997107197817106, guid: 610b31242d3f81148b6ce4c7329d3adf, type: 3}

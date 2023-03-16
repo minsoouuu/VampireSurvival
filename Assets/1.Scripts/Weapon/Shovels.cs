@@ -9,10 +9,12 @@ public class Shovels : Weapon
     void Start()
     {
         Initailize();
-        GameObject dir = Instantiate(shovelsDir, transform.parent.transform);
-        transform.SetParent(dir.transform);
+        //GameObject dir = Instantiate(shovelsDir, transform.parent.transform);
+        //transform.SetParent(dir.transform);
+        Vector3 vec = new Vector3(0, 1.5f, 0);
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1 / 255f);
-        Instantiate(bullet, dir.transform);
+        Bullet bull = Instantiate(bullet,transform);
+        bull.transform.position += vec;
     }
     public override void Initailize()
     {

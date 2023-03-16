@@ -13,4 +13,8 @@ public class GunBullet : Bullet
     {
         Initalize();
     }
+    public override void Attack()
+    {
+        transform.Translate(Vector3.up * Time.deltaTime * bulletData.speed);
+    }
 }

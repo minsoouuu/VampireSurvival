@@ -12,12 +12,13 @@ public abstract class Bullet : MonoBehaviour
 {
     public BulletData bulletData = new BulletData();
     public abstract void Initalize();
-
     private void FixedUpdate()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * bulletData.speed);
-
+        Attack();
     }
+
+    public abstract void Attack();
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
