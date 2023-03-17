@@ -120,18 +120,15 @@ public abstract class Enemy : MonoBehaviour
     void Die()
     {
         GameManager.instance.player.enemys.Remove(this);
-        
+        Destroy(gameObject);
+    }
+    void ItemDrop()
+    {
+        Instantiate(expItems[Random.Range(0, expItems.Length)], transform).transform.SetParent(itemParent);
         int rand = Random.Range(0, 10);
-
         if (rand >= 2)
         {
             // È®·ü µå¶ø
         }
-        Destroy(gameObject);
-    }
-
-    void ItemDrop()
-    {
-        Instantiate(expItems[Random.Range(0, expItems.Length)], transform).transform.SetParent(itemParent);
     }
 }

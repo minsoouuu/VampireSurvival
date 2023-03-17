@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Gun
   m_EditorClassIdentifier: 
   weapon: {fileID: 3508108544198949359, guid: 1be41a6638fc7c64aae11735b2922962, type: 3}
-  bullet: {fileID: 7116345048728960727, guid: 703b0046033f02b49a0099d80ec0c498, type: 3}
   selectIcon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  weaponName: gun

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: -3391927118048508908, guid: b2047ac0b552f7148919d3b54e9c1ce1, type: 3}
   selectIcon: {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  weaponName: plough

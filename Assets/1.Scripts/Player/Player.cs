@@ -36,6 +36,7 @@ public abstract class Player : MonoBehaviour
     float curHp = 0;
     [HideInInspector] public List<WeaponData> weaponDatas;
     [HideInInspector] public Enemy target = null;
+    [HideInInspector] public Dictionary<string, WeaponData> weaponDataas;
 
     public float HP
     {
@@ -161,11 +162,12 @@ public abstract class Player : MonoBehaviour
     public void SetWeaponData(WeaponData weaponData)
     {
         weaponDatas.Add(weaponData);
+        weaponDataas.Add(weaponData.WeaponName, weaponData);
         CreateWeapon(weaponData);
     }
     void CreateWeapon(WeaponData weaponData)
     {
-        Weapon weapon = Instantiate(weaponData.Weapon, weaponPos.transform);
+        Instantiate(weaponData.Weapon, weaponPos.transform);
     }
     public void LevelUp()
     {

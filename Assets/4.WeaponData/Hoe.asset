@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: -8665987971965517880, guid: d4af1c1398977ea4ab34cfc8e4e5619d, type: 3}
   selectIcon: {fileID: -344242777, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  damage: 0
-  shotDelay: 0
+  weaponName: hoe

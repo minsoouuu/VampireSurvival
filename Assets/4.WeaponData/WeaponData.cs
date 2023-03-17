@@ -10,4 +10,7 @@ public class WeaponData : ScriptableObject
 
     [SerializeField] private Sprite selectIcon;
     public Sprite SelectIcon { get { return selectIcon; } }
+
+    [SerializeField] string weaponName;
+    public string WeaponName { get { return weaponName; } }
 }
