@@ -34,9 +34,9 @@ public abstract class Player : MonoBehaviour
     Animation anim;
     float attackdelay = 0;
     float curHp = 0;
-    [HideInInspector] public List<WeaponData> weaponDatas;
+    //[HideInInspector] public List<WeaponData> weaponDatas;
     [HideInInspector] public Enemy target = null;
-    [HideInInspector] public Dictionary<string, WeaponData> weaponDataas;
+    [HideInInspector] public Dictionary<string, WeaponData> curWeapons = new Dictionary<string, WeaponData>();
 
     public float HP
     {
@@ -161,13 +161,16 @@ public abstract class Player : MonoBehaviour
     }
     public void SetWeaponData(WeaponData weaponData)
     {
-        weaponDatas.Add(weaponData);
-        weaponDataas.Add(weaponData.WeaponName, weaponData);
+        Debug.Log(curWeapons.Count);
         CreateWeapon(weaponData);
     }
     void CreateWeapon(WeaponData weaponData)
     {
-        Instantiate(weaponData.Weapon, weaponPos.transform);
+        bool dir = GetComponent<SpriteRenderer>().flipX;
+        Weapon weapon = Instantiate(weaponData.Weapon, weaponPos.transform);
+        weapon.GetComponent<SpriteRenderer>().flipX = dir;
+        curWeapons.Add(weaponData.WeaponName,weaponData);
+        //weapon.WeaponLV += 1;
     }
     public void LevelUp()
     {

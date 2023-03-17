@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb0c6f5217cb854daea8efc48a2f225, type: 3}
   m_Name: Machinegun
   m_EditorClassIdentifier: 
-  weapon: {fileID: -7685557576337741558, guid: a45ae2f4488c4064e8cbcc9ff7e16da1, type: 3}
+  weapon: {fileID: -3582629157386877423, guid: a45ae2f4488c4064e8cbcc9ff7e16da1, type: 3}
   selectIcon: {fileID: 563336626, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   weaponName: machingun

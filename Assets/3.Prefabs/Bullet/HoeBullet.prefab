@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 206878177975900019}
   - component: {fileID: 1131668890492188209}
-  - component: {fileID: 2439980009685115450}
   - component: {fileID: -2600621865304045172}
+  - component: {fileID: 639994439786165031}
   m_Layer: 0
-  m_Name: Bullet 2
+  m_Name: HoeBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2439980009685115450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715849578987938545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5a419d99c3dd442a1b5f1528650179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &-2600621865304045172
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,3 +102,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 0.7222222}
   m_Direction: 0
+--- !u!114 &639994439786165031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715849578987938545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea542cf1f6f72144b8fbf0e8cd78ef86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb0c6f5217cb854daea8efc48a2f225, type: 3}
   m_Name: Hoe
   m_EditorClassIdentifier: 
-  weapon: {fileID: -8665987971965517880, guid: d4af1c1398977ea4ab34cfc8e4e5619d, type: 3}
+  weapon: {fileID: 1424990927543173610, guid: d4af1c1398977ea4ab34cfc8e4e5619d, type: 3}
   selectIcon: {fileID: -344242777, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   weaponName: hoe

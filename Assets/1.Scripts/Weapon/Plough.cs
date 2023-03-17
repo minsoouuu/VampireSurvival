@@ -6,7 +6,7 @@ using System.Linq;
 public class Plough : Weapon
 {
     List<Enemy> enemies = new List<Enemy>();
-    List<Enemy> targets = new List<Enemy>();
+    public List<Enemy> targets = new List<Enemy>();
     float time = 0f;
     [SerializeField] bool ison = true;
     Vector3 vec = new Vector3(0, 2, 0);
@@ -50,11 +50,27 @@ public class Plough : Weapon
                     int rand = Random.Range(0, targets.Count);
                     attackOders.Add(targets[rand]);
                 }
-                StartCoroutine(CreateWeapon(attackOders));
+                StartCoroutine(Test(attackOders));
                 targets.Clear();
             }
             time = 0f;
         }
+    }
+    IEnumerator Test(List<Enemy> targets)
+    {
+        ison = false;
+        for (int i = 0; i < targets.Count; i++)
+        {
+            if (targets[i] != null)
+            {
+                Bullet bull = Instantiate(bullet, targets[i].transform);
+                bull.transform.position += vec;
+                bull.transform.SetParent(GameManager.instance.player.bulletparent);
+                bull.transform.rotation = Quaternion.Euler(0, 0, 180);
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+        ison = true;
     }
 
     IEnumerator CreateWeapon(List<Enemy> targets)
@@ -62,16 +78,14 @@ public class Plough : Weapon
         ison = false;
         for (int i = 0; i < targets.Count; i++)
         {
-            if (targets[i] == null)
+            if (targets[i] != null)
             {
-                continue;
+                Bullet bull = Instantiate(bullet, targets[i].transform);
+                bull.transform.position += vec;
+                bull.transform.SetParent(GameManager.instance.player.bulletparent);
+                bull.transform.rotation = Quaternion.Euler(0, 0, 180);
+                yield return new WaitForSeconds(0.2f);
             }
-            Bullet bull = Instantiate(bullet, targets[i].transform);
-            bull.transform.position += vec;
-            bull.transform.SetParent(GameManager.instance.player.bulletparent);
-            bull.transform.rotation = Quaternion.Euler(0, 0, 180);
-            yield return new WaitForSeconds(0.2f);
-            /*
             else
             {
                 this.targets.Clear();
@@ -86,7 +100,6 @@ public class Plough : Weapon
                     yield return new WaitForSeconds(0.2f);
                 }
             }
-            */
         }
         ison = true;
     }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4940023730045155836}
   - component: {fileID: 1359676036416864896}
+  - component: {fileID: -3582629157386877423}
   m_Layer: 0
   m_Name: Machinegun
   m_TagString: Untagged
@@ -84,3 +85,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3582629157386877423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623517929659442094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1851bf785edcd4eb00003b4347cbe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6933404591260859115, guid: 703b0046033f02b49a0099d80ec0c498, type: 3}
+  weponLv: 1

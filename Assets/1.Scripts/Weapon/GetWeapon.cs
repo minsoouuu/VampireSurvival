@@ -57,12 +57,14 @@ public class GetWeapon : MonoBehaviour
             if (inven[i].WeaponData == null)
             {
                 inven[i].WeaponData = weaponData;
+                inven[i].WeaponLV += 1;
                 transform.parent.GetComponent<CreateWeapon>().IsShow(false);
                 GameManager.instance.isLive = true;
                 return;
             }
-            else if (inven[i].GetComponent<Image>().sprite == weaponData.SelectIcon)
+            else if (inven[i].WeaponData == weaponData)
             {
+                GameManager.instance.player.curWeapons[weaponData.WeaponName].Weapon.LevelUp();
                 inven[i].WeaponLV += 1;
                 break;
             }

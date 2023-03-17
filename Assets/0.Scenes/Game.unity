@@ -4684,6 +4684,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2761973a7a576934ca41637fca0a7033, type: 2}
   - {fileID: 11400000, guid: 14f1d5e39c975d640a81b1bb37113cf7, type: 2}
   - {fileID: 11400000, guid: a741bd0cf9d83214c83bf7903e1b2ce2, type: 2}
+  - {fileID: 11400000, guid: ddd9951d57769414e82f00bd903878b7, type: 2}
+  - {fileID: 11400000, guid: 18748f8f470106448980de0cde23b5d6, type: 2}
   player: {fileID: 1689502891}
   isLive: 1
 --- !u!4 &487086357
@@ -11816,7 +11818,6 @@ MonoBehaviour:
   weaponPos: {fileID: 1554203523}
   bulletparent: {fileID: 1413103140}
   bulletpos: {fileID: 0}
-  weaponDatas: []
   target: {fileID: 0}
   maxExp: 100
 --- !u!114 &1689502892

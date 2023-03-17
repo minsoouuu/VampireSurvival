@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6819288694007211999}
   - component: {fileID: 322062978324035176}
+  - component: {fileID: 1424990927543173610}
   m_Layer: 0
   m_Name: Hoe
   m_TagString: Untagged
@@ -84,3 +85,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1424990927543173610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725636229265892505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fe3ef3720059b4abccbb25d5b66ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 639994439786165031, guid: 12cd80a286a5dff4f8b945f17d23ee57, type: 3}
+  weponLv: 0
