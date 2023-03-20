@@ -12,7 +12,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public Weapons weapons = new Weapons();
     public Bullet bullet;
-    public int weponLv = 0;
+    int weponLv = 0;
     public int WeaponLV
     {
         get { return weponLv; }

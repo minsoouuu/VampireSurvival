@@ -99,3 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 639994439786165031, guid: 12cd80a286a5dff4f8b945f17d23ee57, type: 3}
   weponLv: 0
+  hoedir: {fileID: 0}

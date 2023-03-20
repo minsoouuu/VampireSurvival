@@ -11,7 +11,6 @@ public struct ItemData
 public abstract class Item : MonoBehaviour
 {
     public ItemData itemData = new ItemData();
-
     public abstract void Initalize();
 
     public abstract void GetItem();

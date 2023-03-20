@@ -20,19 +20,22 @@ public class Hoe : Weapon
     public override void Attack()
     {
         time += Time.deltaTime;
-        if (time > weapons.shotDelay)
+        if (time > weapons.shotDelay && ison)
         {
-            //GameObject dirCube = Instantiate(hoedir, transform);
+            StartCoroutine(Shot(WeaponLV));
+            time = 0f;
+            ison = false;
+        }
+    }
+    IEnumerator Shot(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
             Bullet bull = Instantiate(bullet, GameManager.instance.player.transform);
             bull.transform.SetParent(GameManager.instance.player.bulletparent);
-            //dirCube.transform.SetParent(GameManager.instance.player.bulletparent);
-            Debug.Log("»ý¼º");
-            time = 0f;
+            yield return new WaitForSeconds(0.1f);
         }
-        if (ison)
-        {
-            
-        }
-        ison = false;
+        yield return new WaitForSeconds(weapons.shotDelay);
+        ison = true;
     }
 }

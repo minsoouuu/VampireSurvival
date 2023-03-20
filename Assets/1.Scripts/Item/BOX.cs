@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BOX : Item
 {
-    List<GameObject> items_ = new List<GameObject>();
-
-
     public override void Initalize()
     {
         itemData.exp = 10f;

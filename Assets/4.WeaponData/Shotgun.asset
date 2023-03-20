@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb0c6f5217cb854daea8efc48a2f225, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  weapon: {fileID: 5509525281238597707, guid: d617f6c2e396bde468cdb4d9c6ccf5b0, type: 3}
+  weapon: {fileID: 8451158974966516160, guid: d617f6c2e396bde468cdb4d9c6ccf5b0, type: 3}
   selectIcon: {fileID: -762074860, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   weaponName: shotgun

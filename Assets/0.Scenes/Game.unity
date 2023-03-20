@@ -4686,6 +4686,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a741bd0cf9d83214c83bf7903e1b2ce2, type: 2}
   - {fileID: 11400000, guid: ddd9951d57769414e82f00bd903878b7, type: 2}
   - {fileID: 11400000, guid: 18748f8f470106448980de0cde23b5d6, type: 2}
+  - {fileID: 11400000, guid: 3448de31815e73445a2b95e488967554, type: 2}
   player: {fileID: 1689502891}
   isLive: 1
 --- !u!4 &487086357
@@ -11806,13 +11807,6 @@ MonoBehaviour:
   deadSP:
   - {fileID: 1375599644, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
   - {fileID: 1929632063, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
-  weaponSprites:
-  - {fileID: 143021600, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: -1972582131, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: 1349035616, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: -144335857, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  - {fileID: 1772703093, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   x: 0
   y: 0
   weaponPos: {fileID: 1554203523}

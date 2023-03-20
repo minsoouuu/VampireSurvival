@@ -43,14 +43,13 @@ public class Plough : Weapon
             if (targets.Count > 0)
             {
                 List<Enemy> attackOders = new List<Enemy>();
-                int attackCnt = 12;
 
-                for (int i = 0; i < attackCnt; i++)
+                for (int i = 0; i < WeaponLV; i++)
                 {
                     int rand = Random.Range(0, targets.Count);
                     attackOders.Add(targets[rand]);
                 }
-                StartCoroutine(CreateWeapon(attackOders,WeaponLV));
+                StartCoroutine(Test(attackOders));
                 targets.Clear();
             }
             time = 0f;
@@ -69,14 +68,18 @@ public class Plough : Weapon
                 bull.transform.rotation = Quaternion.Euler(0, 0, 180);
                 yield return new WaitForSeconds(0.2f);
             }
+            else
+            {
+                continue;
+            }
         }
         ison = true;
     }
 
-    IEnumerator CreateWeapon(List<Enemy> targets,int count)
+    IEnumerator CreateWeapon(List<Enemy> targets)
     {
         ison = false;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < targets.Count; i++)
         {
             if (targets[i] != null)
             {

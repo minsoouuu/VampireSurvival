@@ -24,7 +24,7 @@ public class Gun : Weapon
         float dis = Vector3.Distance(transform.position, GameManager.instance.player.target.transform.position);
         if (dis < weapons.dis)
         {
-            if (time > weapons.shotDelay && ison)
+            if (ison)
             {
                 StartCoroutine(Shot(WeaponLV));
                 time = 0f;
@@ -32,7 +32,6 @@ public class Gun : Weapon
             }
         }
     }
-
     IEnumerator Shot(int count)
     {
         for (int i = 0; i < count; i++)
@@ -41,7 +40,7 @@ public class Gun : Weapon
             bt.transform.SetParent(GameManager.instance.player.bulletparent);
             yield return new WaitForSeconds(0.2f);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(weapons.shotDelay);
         ison = true;
     }
 }

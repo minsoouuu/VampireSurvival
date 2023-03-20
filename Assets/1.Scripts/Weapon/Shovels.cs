@@ -9,12 +9,7 @@ public class Shovels : Weapon
     void Start()
     {
         Initailize();
-        //GameObject dir = Instantiate(shovelsDir, transform.parent.transform);
-        //transform.SetParent(dir.transform);
-        Vector3 vec = new Vector3(0, 1.5f, 0);
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1 / 255f);
-        Bullet bull = Instantiate(bullet,transform);
-        bull.transform.position += vec;
     }
     public override void Initailize()
     {
@@ -24,14 +19,31 @@ public class Shovels : Weapon
     
     public override void Attack()
     {
-
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            CreateShovels(WeaponLV);
+        }
     }
 
     void CreateShovels(int count)
     {
-        for (int i = 0; i < count; i++)
+        int child = transform.childCount;
+        if (transform.childCount > 0)
         {
-
+            for (int i = 0; i < child; i++)
+            {
+                Destroy(transform.GetChild(i));
+            }
+        }
+        return;
+        Vector3 vec = new Vector3(0, 1.5f, 0);
+        int ea = count / 360;
+        for (int i = 0; i <= count; i+= ea)
+        {
+            Bullet bull = Instantiate(bullet, transform);
+            bull.transform.position += vec;
+            bull.transform.eulerAngles += new Vector3(0, 0, i);
+            bull.transform.SetParent(GameManager.instance.player.bulletparent);
         }
     }
 }

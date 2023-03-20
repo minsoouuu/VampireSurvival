@@ -9,13 +9,11 @@ public class ShovelsBullet : Bullet
         bulletData.damage = 5f;
         bulletData.speed = 3f;
     }
-
     // Start is called before the first frame update
     void Start()
     {
         Initalize();
     }
-
     public override void Attack()
     {
         float dir = 0;

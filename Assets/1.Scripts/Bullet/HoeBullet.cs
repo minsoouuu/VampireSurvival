@@ -5,6 +5,7 @@ using UnityEngine;
 public class HoeBullet : Bullet
 {
     bool isBack = false;
+    int randDir;
     private void Start()
     {
         Initalize();
@@ -13,6 +14,7 @@ public class HoeBullet : Bullet
     {
         bulletData.damage = 15f;
         bulletData.speed = 8f;
+        randDir = Random.Range(0, 7);
     }
     public override void Attack()
     {
@@ -24,7 +26,7 @@ public class HoeBullet : Bullet
 
         if (isBack == false)
         {
-            transform.position += new Vector3(1, 0, 0) * Time.deltaTime * bulletData.speed;
+            Move(randDir);
             if (dis > 10)
             {
                 isBack = true;
@@ -34,6 +36,38 @@ public class HoeBullet : Bullet
         {
             transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.transform.position, bulletData.speed * Time.deltaTime);
         }
+    }
+    void Move(int dir1)
+    {
+        switch (dir1)
+        {
+            case 0:
+                transform.position += new Vector3(1, 0, 0) * Time.deltaTime * bulletData.speed;
+                break;
+            case 1:
+                transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * bulletData.speed;
+                break;
+            case 2:
+                transform.position += new Vector3(0, 1, 0) * Time.deltaTime * bulletData.speed;
+                break;
+            case 3:
+                transform.position += new Vector3(0, -1, 0) * Time.deltaTime * bulletData.speed;
+                break;
+            case 4:
+                transform.position += new Vector3(1, 1, 0) * Time.deltaTime * bulletData.speed;
+                break;
+            case 5:
+                transform.position += new Vector3(-1, 1, 0) * Time.deltaTime * bulletData.speed;
+                break;
+            case 6:
+                transform.position += new Vector3(-1, -1, 0) * Time.deltaTime * bulletData.speed;
+                break;
+            case 7:
+                transform.position += new Vector3(1, -1, 0) * Time.deltaTime * bulletData.speed;
+                break;
+
+        }
+        
     }
     public override void Hit(Collider2D coll)
     {
