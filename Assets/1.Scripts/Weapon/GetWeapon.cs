@@ -64,7 +64,6 @@ public class GetWeapon : MonoBehaviour
             }
             else if (inven[i].WeaponData == weaponData)
             {
-                GameManager.instance.player.curWeapons[weaponData.WeaponName].Weapon.LevelUp();
                 inven[i].WeaponLV += 1;
                 break;
             }

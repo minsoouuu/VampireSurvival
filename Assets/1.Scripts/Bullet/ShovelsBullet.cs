@@ -20,7 +20,7 @@ public class ShovelsBullet : Bullet
     {
         float dir = 0;
         dir += Time.deltaTime * bulletData.speed;
-        transform.parent.transform.eulerAngles += new Vector3(0, 0, 1);
+        transform.parent.transform.eulerAngles += new Vector3(0, 0, 1) * bulletData.speed;
     }
 
     public override void Hit(Collider2D coll)

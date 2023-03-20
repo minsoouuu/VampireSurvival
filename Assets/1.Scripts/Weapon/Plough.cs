@@ -50,7 +50,7 @@ public class Plough : Weapon
                     int rand = Random.Range(0, targets.Count);
                     attackOders.Add(targets[rand]);
                 }
-                StartCoroutine(Test(attackOders));
+                StartCoroutine(CreateWeapon(attackOders,WeaponLV));
                 targets.Clear();
             }
             time = 0f;
@@ -73,10 +73,10 @@ public class Plough : Weapon
         ison = true;
     }
 
-    IEnumerator CreateWeapon(List<Enemy> targets)
+    IEnumerator CreateWeapon(List<Enemy> targets,int count)
     {
         ison = false;
-        for (int i = 0; i < targets.Count; i++)
+        for (int i = 0; i < count; i++)
         {
             if (targets[i] != null)
             {

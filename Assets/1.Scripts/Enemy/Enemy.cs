@@ -123,7 +123,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (GameManager.instance.player.curWeapons.ContainsKey("plough"))
         {
-            GameManager.instance.player.curWeapons["plough"].Weapon.GetComponent<Plough>().targets.Remove(this);
+            GameManager.instance.player.curWeapons["plough"].GetComponent<Plough>().targets.Remove(this);
             Debug.Log(this);
         }
         Destroy(gameObject);

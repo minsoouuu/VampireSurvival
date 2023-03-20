@@ -26,6 +26,7 @@ public class Hoe : Weapon
             Bullet bull = Instantiate(bullet, GameManager.instance.player.transform);
             bull.transform.SetParent(GameManager.instance.player.bulletparent);
             //dirCube.transform.SetParent(GameManager.instance.player.bulletparent);
+            Debug.Log("»ý¼º");
             time = 0f;
         }
         if (ison)

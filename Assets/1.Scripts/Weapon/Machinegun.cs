@@ -23,7 +23,7 @@ public class Machinegun : Weapon
         time += Time.deltaTime;
         if (time > weapons.shotDelay)
         {
-            StartCoroutine(Shot(weapons.shotDelay,5));
+            StartCoroutine(Shot(weapons.shotDelay, WeaponLV));
             time = 0f;
             ison = false;
         }
@@ -37,7 +37,7 @@ public class Machinegun : Weapon
             bull.transform.SetParent(GameManager.instance.player.bulletparent);
             yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSecondsRealtime(0.1f);
+        yield return new WaitForSecondsRealtime(0.5f);
         ison = true;
     }
 }

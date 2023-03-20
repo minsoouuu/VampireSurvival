@@ -25,18 +25,16 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected List<Sprite> standSP;
     [SerializeField] protected List<Sprite> runSP;
     [SerializeField] protected List<Sprite> deadSP;
-    [SerializeField] private Sprite[] weaponSprites;
     [HideInInspector] public float x;
     [HideInInspector] public float y;
     public GameObject weaponPos;
     public Transform bulletparent;
     public Transform bulletpos;
     Animation anim;
-    float attackdelay = 0;
     float curHp = 0;
     //[HideInInspector] public List<WeaponData> weaponDatas;
     [HideInInspector] public Enemy target = null;
-    [HideInInspector] public Dictionary<string, WeaponData> curWeapons = new Dictionary<string, WeaponData>();
+    [HideInInspector] public Dictionary<string, Weapon> curWeapons = new Dictionary<string, Weapon>();
 
     public float HP
     {
@@ -72,7 +70,6 @@ public abstract class Player : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             GameManager.instance.isLive = false;
         }
-        attackdelay += Time.deltaTime;
 
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
@@ -161,7 +158,6 @@ public abstract class Player : MonoBehaviour
     }
     public void SetWeaponData(WeaponData weaponData)
     {
-        Debug.Log(curWeapons.Count);
         CreateWeapon(weaponData);
     }
     void CreateWeapon(WeaponData weaponData)
@@ -169,8 +165,7 @@ public abstract class Player : MonoBehaviour
         bool dir = GetComponent<SpriteRenderer>().flipX;
         Weapon weapon = Instantiate(weaponData.Weapon, weaponPos.transform);
         weapon.GetComponent<SpriteRenderer>().flipX = dir;
-        curWeapons.Add(weaponData.WeaponName,weaponData);
-        //weapon.WeaponLV += 1;
+        curWeapons.Add(weaponData.WeaponName,weapon);
     }
     public void LevelUp()
     {
