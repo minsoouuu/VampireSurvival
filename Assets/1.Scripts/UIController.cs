@@ -12,6 +12,10 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isLive == false)
+        {
+            return;
+        }
         hpImage.fillAmount = GameManager.instance.player.HP / GameManager.instance.player.playerData.maxHp;
         expImage.fillAmount = GameManager.instance.player.Exp / GameManager.instance.player.maxExp;
     }

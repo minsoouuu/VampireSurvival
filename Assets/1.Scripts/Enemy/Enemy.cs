@@ -59,16 +59,14 @@ public abstract class Enemy : MonoBehaviour
         transform.Translate(dir * Time.deltaTime * enemyData.speed);
         */
 
-        if (!GameManager.instance.isLive)
+        if (GameManager.instance.isLive == false)
         {
-           return;
+            return;
         }
-
         if (!isLive)
         {
             return;
         }
-
         if (HP <= 0)
         {
             GetComponent<CapsuleCollider2D>().enabled = false;

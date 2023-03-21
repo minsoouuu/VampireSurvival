@@ -158,14 +158,10 @@ public abstract class Player : MonoBehaviour
     }
     public void SetWeaponData(WeaponData weaponData)
     {
-        CreateWeapon(weaponData);
-    }
-    void CreateWeapon(WeaponData weaponData)
-    {
         bool dir = GetComponent<SpriteRenderer>().flipX;
         Weapon weapon = Instantiate(weaponData.Weapon, weaponPos.transform);
         weapon.GetComponent<SpriteRenderer>().flipX = dir;
-        curWeapons.Add(weaponData.WeaponName,weapon);
+        curWeapons.Add(weaponData.WeaponName, weapon);
     }
     public void LevelUp()
     {

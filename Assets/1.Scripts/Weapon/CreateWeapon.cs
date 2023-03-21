@@ -13,6 +13,10 @@ public class CreateWeapon : MonoBehaviour
     }
     void Update()
     {
+        if (GameManager.instance.isLive == false)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             GameManager.instance.player.Exp += 100;

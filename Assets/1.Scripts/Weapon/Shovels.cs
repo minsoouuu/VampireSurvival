@@ -21,37 +21,34 @@ public class Shovels : Weapon
     {
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            Test(WeaponLV);
+            Shot(WeaponLV);
         }
     }
-
-    void CreateShovels(int count)
+   
+    void Shot(int count)
     {
-        Vector3 vec = new Vector3(0, 1.5f, 0);
-        int ea = count / 360;
-        for (int i = 0; i <= count; i+= ea)
+        int child = transform.childCount;
+        if (child > 0)
+        {
+            for (int i = 0; i < child; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        }
+
+        float createDir = 360 / count;
+        Vector3 dir = (transform.position + new Vector3(0, 1.5f, 0)) - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+
+        for (float i = 0; i < 360; i += createDir)
         {
             Bullet bull = Instantiate(bullet, transform);
-            bull.transform.position += vec;
-            bull.transform.eulerAngles += new Vector3(0, 0, i);
+            transform.rotation = Quaternion.AngleAxis((angle - 90) + i, Vector3.forward);
+            bull.transform.rotation = Quaternion.AngleAxis((angle - 90) + 1, Vector3.forward);
+            bull.transform.position += new Vector3(0, 1.5f, 0);
+            //bull.transform.SetParent(GameManager.instance.player.bulletparent);
         }
-    }
-
-    void Test(int count)
-    {
-        Vector3 vec = new Vector3(0, 1.5f, 0);
-        float dir = CalculateAngle(transform.position,GameManager.instance.player.enemys[0].transform.position);
-        float ea = count / dir;
-        for (float i = 0; i < dir; i += ea)
-        {
-            Bullet bull = Instantiate(bullet, transform);
-            bull.transform.position += vec;
-            bull.transform.rotation = Quaternion.Euler(0, 0, i);
-        }
-    }
-
-    float CalculateAngle(Vector3 from, Vector3 to)
-    {
-        return Quaternion.FromToRotation(Vector3.up, to - from).eulerAngles.z;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 }

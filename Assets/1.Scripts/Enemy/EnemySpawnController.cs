@@ -24,14 +24,11 @@ public class EnemySpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            Instantiate(box, spawnPoints).transform.SetParent(boxtrans);
-        }
-        if (!GameManager.instance.isLive)
+        if (GameManager.instance.isLive == false)
         {
             return;
         }
+        
         spawnTime += Time.deltaTime;
         if (spawnTime > 1f)
         {

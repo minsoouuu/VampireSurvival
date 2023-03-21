@@ -25,6 +25,8 @@ public abstract class Weapon : MonoBehaviour
     {
         if (!GameManager.instance.isLive)
             return;
+        if (GameManager.instance.player.enemys == null)
+            return;
         Attack();
     }
 }

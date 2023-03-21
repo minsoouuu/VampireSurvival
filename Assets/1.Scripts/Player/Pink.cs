@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Farmer : Player
+public class Pink : Player
 {
     private void Awake()
     {

@@ -7,7 +7,7 @@ public class ShovelsBullet : Bullet
     public override void Initalize()
     {
         bulletData.damage = 5f;
-        bulletData.speed = 3f;
+        bulletData.speed = 50f;
     }
     // Start is called before the first frame update
     void Start()
@@ -16,10 +16,16 @@ public class ShovelsBullet : Bullet
     }
     public override void Attack()
     {
-        float dir = 0;
-        dir += Time.deltaTime * bulletData.speed;
-        //transform.parent.transform.eulerAngles += new Vector3(0, 0, 1) * bulletData.speed;
         transform.parent.transform.rotation *= Quaternion.Euler(new Vector3(0, 0, 1) * Time.deltaTime * bulletData.speed);
+        
+        //float dir = 0;
+        //dir += Time.deltaTime * bulletData.speed;
+        //transform.parent.transform.eulerAngles += new Vector3(0, 0, 1) * bulletData.speed;
+        
+        //물체가 직접 회전
+        //Vector3 dis = GameManager.instance.player.transform.position - transform.position;
+        //Vector3 offset = Quaternion.AngleAxis(dir,Vector3.forward) * dis;
+        //transform.position = GameManager.instance.player.transform.position + offset;
     }
 
     public override void Hit(Collider2D coll)
@@ -30,15 +36,7 @@ public class ShovelsBullet : Bullet
         {
             Enemy enemy = coll.GetComponent<Enemy>();
             enemy.HP -= bulletData.damage;
-            enemy.transform.Translate(dir * 0.2f);
-        }
-    }
-
-    IEnumerator KnockBackEnemy(float enemyX,bool isRight)
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            yield return new WaitForSeconds(0.1f);
+            enemy.transform.Translate(dir * 0.1f);
         }
     }
 }
