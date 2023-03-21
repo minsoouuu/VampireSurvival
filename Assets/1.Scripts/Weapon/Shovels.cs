@@ -21,21 +21,12 @@ public class Shovels : Weapon
     {
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            CreateShovels(WeaponLV);
+            Test(WeaponLV);
         }
     }
 
     void CreateShovels(int count)
     {
-        int child = transform.childCount;
-        if (transform.childCount > 0)
-        {
-            for (int i = 0; i < child; i++)
-            {
-                Destroy(transform.GetChild(i));
-            }
-        }
-        return;
         Vector3 vec = new Vector3(0, 1.5f, 0);
         int ea = count / 360;
         for (int i = 0; i <= count; i+= ea)
@@ -43,7 +34,24 @@ public class Shovels : Weapon
             Bullet bull = Instantiate(bullet, transform);
             bull.transform.position += vec;
             bull.transform.eulerAngles += new Vector3(0, 0, i);
-            bull.transform.SetParent(GameManager.instance.player.bulletparent);
         }
+    }
+
+    void Test(int count)
+    {
+        Vector3 vec = new Vector3(0, 1.5f, 0);
+        float dir = CalculateAngle(transform.position,GameManager.instance.player.enemys[0].transform.position);
+        float ea = count / dir;
+        for (float i = 0; i < dir; i += ea)
+        {
+            Bullet bull = Instantiate(bullet, transform);
+            bull.transform.position += vec;
+            bull.transform.rotation = Quaternion.Euler(0, 0, i);
+        }
+    }
+
+    float CalculateAngle(Vector3 from, Vector3 to)
+    {
+        return Quaternion.FromToRotation(Vector3.up, to - from).eulerAngles.z;
     }
 }

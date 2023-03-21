@@ -18,7 +18,8 @@ public class ShovelsBullet : Bullet
     {
         float dir = 0;
         dir += Time.deltaTime * bulletData.speed;
-        transform.parent.transform.eulerAngles += new Vector3(0, 0, 1) * bulletData.speed;
+        //transform.parent.transform.eulerAngles += new Vector3(0, 0, 1) * bulletData.speed;
+        transform.parent.transform.rotation *= Quaternion.Euler(new Vector3(0, 0, 1) * Time.deltaTime * bulletData.speed);
     }
 
     public override void Hit(Collider2D coll)
@@ -37,7 +38,6 @@ public class ShovelsBullet : Bullet
     {
         for (int i = 0; i < 5; i++)
         {
-       
             yield return new WaitForSeconds(0.1f);
         }
     }
