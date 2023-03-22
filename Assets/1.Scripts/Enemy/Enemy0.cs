@@ -8,6 +8,6 @@ public class Enemy0 : Enemy
     {
         enemyData.speed = 1f;
         enemyData.damage = 5f;
-        enemyData.hp = 100;
+        enemyData.hp = 100f;
     }
 }

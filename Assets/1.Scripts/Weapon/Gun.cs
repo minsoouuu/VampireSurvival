@@ -5,7 +5,6 @@ using UnityEngine;
 public class Gun : Weapon
 {
     float time = 0f;
-    bool ison = true;
     private void Start()
     {
         Initailize();

@@ -15,10 +15,9 @@ public class InvenTory : MonoBehaviour
         {
             weaponLV = value;
             string weaponname = weaponData.WeaponName;
-            Debug.Log(weaponname);
-            if (GameManager.instance.player.curWeapons.ContainsKey(weaponname))
+            if (GameManager.instance.player.curWeapons.ContainsKey(weaponData.WeaponName))
             {
-                GameManager.instance.player.curWeapons[weaponname].WeaponLV = value;
+                GameManager.instance.player.curWeapons[weaponData.WeaponName].WeaponLV = value;
             }
             text.text = weaponLV.ToString();
         }

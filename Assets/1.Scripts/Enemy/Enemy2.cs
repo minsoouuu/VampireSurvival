@@ -6,7 +6,7 @@ public class Enemy2 : Enemy
 {
     public override void Init()
     {
-        enemyData.speed = 3;
+        enemyData.speed = 3f;
         enemyData.damage = 20f;
         enemyData.hp = 100f;
     }

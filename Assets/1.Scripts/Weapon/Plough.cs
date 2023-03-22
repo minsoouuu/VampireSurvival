@@ -8,7 +8,6 @@ public class Plough : Weapon
     List<Enemy> enemies = new List<Enemy>();
     public List<Enemy> targets = new List<Enemy>();
     float time = 0f;
-    [SerializeField] bool ison = true;
     Vector3 vec = new Vector3(0, 2, 0);
     public override void Initailize()
     {

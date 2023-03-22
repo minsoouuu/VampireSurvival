@@ -12,11 +12,12 @@ public abstract class Weapon : MonoBehaviour
 {
     public Weapons weapons = new Weapons();
     public Bullet bullet;
+    [HideInInspector] public bool ison = true;
     int weponLv = 0;
     public int WeaponLV
     {
         get { return weponLv; }
-        set { weponLv = value; }
+        set  {weponLv = value; }
     }
     public abstract void Initailize();
     public abstract void Attack();

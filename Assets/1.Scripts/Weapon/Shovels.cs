@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shovels : Weapon
 {
     [SerializeField] private GameObject shovelsDir;
-    // Start is called before the first frame update
     void Start()
     {
         Initailize();
@@ -19,13 +18,14 @@ public class Shovels : Weapon
     
     public override void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (!ison)
         {
-            Shot(WeaponLV);
+            return;
         }
+        Debug.Log(WeaponLV);
+        Create(WeaponLV);
     }
-   
-    void Shot(int count)
+    void Create(int count)
     {
         int child = transform.childCount;
         if (child > 0)
@@ -40,15 +40,14 @@ public class Shovels : Weapon
         Vector3 dir = (transform.position + new Vector3(0, 1.5f, 0)) - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-
         for (float i = 0; i < 360; i += createDir)
         {
             Bullet bull = Instantiate(bullet, transform);
             transform.rotation = Quaternion.AngleAxis((angle - 90) + i, Vector3.forward);
-            bull.transform.rotation = Quaternion.AngleAxis((angle - 90) + 1, Vector3.forward);
+            bull.transform.rotation = Quaternion.AngleAxis((angle - 90), Vector3.forward);
             bull.transform.position += new Vector3(0, 1.5f, 0);
-            //bull.transform.SetParent(GameManager.instance.player.bulletparent);
         }
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        ison = false;
     }
 }

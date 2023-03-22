@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Shotgun : Weapon
 {
-    bool ison = true;
     private void Start()
     {
         Initailize();
@@ -21,15 +20,6 @@ public class Shotgun : Weapon
         {
             StartCoroutine(Shot(WeaponLV));
             ison = false;
-        }
-    }
-    void GunMove()
-    {
-        float z = Input.GetAxisRaw("Vertical");
-
-        if (transform.rotation.z < 90)
-        {
-            transform.eulerAngles += new Vector3(0, 0, z);
         }
     }
     IEnumerator Shot(int count)

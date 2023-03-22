@@ -5,7 +5,6 @@ using UnityEngine;
 public class Hoe : Weapon
 {
     [SerializeField] private GameObject hoedir;
-    bool ison = true;
     float time = 0f;
     private void Start()
     {

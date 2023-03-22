@@ -27,9 +27,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private GameObject boxItem;
     [HideInInspector] public Transform itemParent;
     [HideInInspector] public Transform boxParent;
-    Player player;
     float curHp = 0;
-    float maxHp = 100;
     float attackdelayTime = 0;
 
     bool isLive = true;
@@ -41,8 +39,7 @@ public abstract class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<Player>();
-        curHp = maxHp;
+        curHp = enemyData.hp;
     }
 
     public abstract void Init();
@@ -77,14 +74,14 @@ public abstract class Enemy : MonoBehaviour
         }
         attackdelayTime += Time.deltaTime;
         
-        Vector3 dir = player.transform.position - transform.position;
+        Vector3 dir = GameManager.instance.player.transform.position - transform.position;
         transform.Translate(dir.normalized * Time.deltaTime * enemyData.speed);
 
-        float dis = Vector3.Distance(transform.position, player.transform.position);
+        float dis = Vector3.Distance(transform.position,GameManager.instance.player.transform.position);
         
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyData.speed * Time.deltaTime);
 
-        if (player.transform.position.x < transform.position.x)
+        if (GameManager.instance.player.transform.position.x < transform.position.x)
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -122,7 +119,6 @@ public abstract class Enemy : MonoBehaviour
         if (GameManager.instance.player.curWeapons.ContainsKey("plough"))
         {
             GameManager.instance.player.curWeapons["plough"].GetComponent<Plough>().targets.Remove(this);
-            Debug.Log(this);
         }
         Destroy(gameObject);
     }
