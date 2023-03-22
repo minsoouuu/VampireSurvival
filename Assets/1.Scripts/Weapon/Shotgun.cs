@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Shotgun : Weapon
 {
-    private void Start()
-    {
-        Initailize();
-    }
     public override void Initailize()
     {
         weapons.dis = 4f;

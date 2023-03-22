@@ -6,6 +6,6 @@ public class MainUIController : MonoBehaviour
 {
     public void OnStartButton()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("ChoiceCharacter");
     }
 }

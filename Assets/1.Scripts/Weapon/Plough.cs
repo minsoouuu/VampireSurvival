@@ -15,10 +15,6 @@ public class Plough : Weapon
         weapons.shotDelay = 3f;
         weapons.dis = 6f;
     }
-    void Start()
-    {
-        Initailize();
-    }
     public override void Attack()
     {
         if (enemies == null)

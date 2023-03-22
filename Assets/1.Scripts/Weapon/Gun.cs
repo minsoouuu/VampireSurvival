@@ -5,10 +5,7 @@ using UnityEngine;
 public class Gun : Weapon
 {
     float time = 0f;
-    private void Start()
-    {
-        Initailize();
-    }
+   
     public override void Initailize()
     {
         weapons.damage = 50f;

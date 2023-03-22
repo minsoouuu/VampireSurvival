@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 6322961620086367537}
   - component: {fileID: 42597040547274756}
   m_Layer: 0
-  m_Name: Puple
+  m_Name: Purple
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

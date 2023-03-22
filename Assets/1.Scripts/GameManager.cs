@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager instance = null;
     public UIController uicont;
     public List<WeaponData> weaponDatas;
     public Player player;
     public bool isLive = false;
     public Transform playerSpawnPoint;
+    public Transform bulletParent;
     public List<Player> players = new List<Player>();
-    [SerializeField] private Camera came;
-    [SerializeField] private Transform bulletParent;
     void Awake()
     {
-        instance = this;
-        int rand = Random.Range(0, players.Count);
-        SetPlayer(players[rand]);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+        //int rand = Random.Range(0, players.Count);
+        //SetPlayer(players[rand]);
     }
 
     void SetPlayer(Player player)
     {
         Player play = Instantiate(player, playerSpawnPoint);
-        play.bulletparent = this.bulletParent;
-        this.player = play;
         isLive = true;
     }
 }

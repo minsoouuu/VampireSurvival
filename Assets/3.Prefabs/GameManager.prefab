@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7461038424172018978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7461038424172018980}
+  - component: {fileID: 7461038424172018981}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7461038424172018980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7461038424172018978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7461038424172018981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7461038424172018978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db12a08618594c48a23fe7b80beb9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uicont: {fileID: 0}
+  weaponDatas:
+  - {fileID: 11400000, guid: 2761973a7a576934ca41637fca0a7033, type: 2}
+  - {fileID: 11400000, guid: 14f1d5e39c975d640a81b1bb37113cf7, type: 2}
+  - {fileID: 11400000, guid: a741bd0cf9d83214c83bf7903e1b2ce2, type: 2}
+  - {fileID: 11400000, guid: ddd9951d57769414e82f00bd903878b7, type: 2}
+  - {fileID: 11400000, guid: 18748f8f470106448980de0cde23b5d6, type: 2}
+  - {fileID: 11400000, guid: 3448de31815e73445a2b95e488967554, type: 2}
+  player: {fileID: 0}
+  isLive: 1
+  playerSpawnPoint: {fileID: 0}
+  players:
+  - {fileID: 3276149495783185539, guid: b5f4d7580dfe22f49928e0fdf9cee305, type: 3}
+  - {fileID: 8097828435870092402, guid: 176ca4d7470da214cb4a4072366d1415, type: 3}
+  - {fileID: 3651384128516986105, guid: 7502a6040ca3f324590c8b7b90d3b7ee, type: 3}
+  - {fileID: 42597040547274756, guid: dfa9d74e6556c1d4581dc74b04ebad49, type: 3}
+  bulletParent: {fileID: 0}

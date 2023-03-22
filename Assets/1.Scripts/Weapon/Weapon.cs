@@ -17,7 +17,19 @@ public abstract class Weapon : MonoBehaviour
     public int WeaponLV
     {
         get { return weponLv; }
-        set  {weponLv = value; }
+        set 
+        {
+            weponLv = value; 
+            if (GameManager.instance.player.curWeapons.ContainsKey("shovels"))
+            {
+                GameManager.instance.player.curWeapons["shovels"].ison = true;
+            }
+        }
+    }
+    void Start()
+    {
+        Initailize();
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1 / 255f);
     }
     public abstract void Initailize();
     public abstract void Attack();

@@ -5,11 +5,7 @@ using UnityEngine;
 public class Shovels : Weapon
 {
     [SerializeField] private GameObject shovelsDir;
-    void Start()
-    {
-        Initailize();
-        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1 / 255f);
-    }
+    
     public override void Initailize()
     {
         weapons.damage = 5f;

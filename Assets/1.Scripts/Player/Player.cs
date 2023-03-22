@@ -27,7 +27,7 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected List<Sprite> deadSP;
     [HideInInspector] public float x;
     [HideInInspector] public float y;
-    public GameObject weaponPos;
+    public Transform weaponPos;
     public Transform bulletparent;
     public Transform bulletpos;
     Animation anim;
@@ -51,9 +51,8 @@ public abstract class Player : MonoBehaviour
     public abstract void Initalize();
     void Start()
     {
-        //weaponDatas.Add(GameManager.instance.weaponDatas[0]);
-        //CreateWeapon(weaponDatas[0]);
         HP = playerData.maxHp;
+        weaponPos = transform.GetChild(0);
         bulletpos = transform.GetChild(1);
     }
     void Update()

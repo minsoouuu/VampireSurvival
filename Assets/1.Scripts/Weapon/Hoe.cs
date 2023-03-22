@@ -6,10 +6,7 @@ public class Hoe : Weapon
 {
     [SerializeField] private GameObject hoedir;
     float time = 0f;
-    private void Start()
-    {
-        Initailize();
-    }
+   
     public override void Initailize()
     {
         weapons.damage = 15f;
