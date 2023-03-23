@@ -148,11 +148,14 @@ MonoBehaviour:
   - {fileID: 297993398, guid: 4104ee12b4d54f54b91b3ba875787837, type: 3}
   hitSprite: {fileID: 1151968089, guid: 4104ee12b4d54f54b91b3ba875787837, type: 3}
   expItems:
-  - {fileID: 2620340759104819498, guid: 6c6ddaa186d1b674698a385cb2115db6, type: 3}
-  - {fileID: 4578068387781608350, guid: 9ad7cdd1094e4034382f14ad04904d5f, type: 3}
-  - {fileID: 254493258825606495, guid: 92b05daf7e8993440ac520ed6974fb00, type: 3}
-  boxItem: {fileID: 0}
-  itemparent: {fileID: 0}
+  - {fileID: -244035194234171092, guid: 6c6ddaa186d1b674698a385cb2115db6, type: 3}
+  - {fileID: 5023635760532978793, guid: 9ad7cdd1094e4034382f14ad04904d5f, type: 3}
+  - {fileID: 9084854699287545050, guid: 92b05daf7e8993440ac520ed6974fb00, type: 3}
+  hel_mags:
+  - {fileID: 8960034392016322955, guid: 6c5c2c521769f154db49afaca97a0ecf, type: 3}
+  - {fileID: 8761253185972970174, guid: 075b2399d946a1f488f2b898f5530819, type: 3}
+  itemParent: {fileID: 0}
+  boxParent: {fileID: 0}
 --- !u!114 &2723980839014939183
 MonoBehaviour:
   m_ObjectHideFlags: 0

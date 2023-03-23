@@ -7,13 +7,18 @@ using UnityEngine;
 public struct ItemData
 {
     public float exp;
+    public float health;
 }
 public abstract class Item : MonoBehaviour
 {
     public ItemData itemData = new ItemData();
+    void Start()
+    {
+        Initalize();
+    }
     public abstract void Initalize();
 
-    public abstract void GetItem();
+    public abstract void GetItem(Collider2D collision);
 
     public virtual void GetMagItem()
     {
@@ -33,7 +38,7 @@ public abstract class Item : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            GetItem();
+            GetItem(collision);
             Destroy(gameObject);
         }
     }

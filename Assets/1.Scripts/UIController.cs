@@ -16,7 +16,7 @@ public class UIController : MonoBehaviour
         {
             return;
         }
-        hpImage.fillAmount = GameManager.instance.player.HP / GameManager.instance.player.playerData.maxHp;
+        hpImage.fillAmount = GameManager.instance.player.HP / GameManager.instance.player.MaxHp;
         expImage.fillAmount = GameManager.instance.player.Exp / GameManager.instance.player.maxExp;
     }
     public void DieImage()

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BOX : Item
+public class Mag : Item
 {
     public override void Initalize()
     {
         itemData.exp = 10f;
     }
-    public override void GetItem()
+    public override void GetItem(Collider2D collision)
     {
         GameObject items = GameObject.Find("ItemParent");
         int itemEa = items.transform.childCount;

@@ -31,7 +31,8 @@ public abstract class Player : MonoBehaviour
     public Transform bulletparent;
     public Transform bulletpos;
     Animation anim;
-    float curHp = 0;
+    float curHp = 0f;
+    float maxHP = 0f;
     //[HideInInspector] public List<WeaponData> weaponDatas;
     [HideInInspector] public Enemy target = null;
     [HideInInspector] public Dictionary<string, Weapon> curWeapons = new Dictionary<string, Weapon>();
@@ -40,6 +41,11 @@ public abstract class Player : MonoBehaviour
     {
         get { return curHp; }
         set { curHp = value; }
+    }
+    public float MaxHp
+    {
+        get { return maxHP; }
+        set { maxHP = value; }
     }
     float curExp = 0;
     [HideInInspector] public float maxExp = 100f;
@@ -52,6 +58,8 @@ public abstract class Player : MonoBehaviour
     void Start()
     {
         HP = playerData.maxHp;
+        MaxHp = playerData.maxHp;
+
         weaponPos = transform.GetChild(0);
         bulletpos = transform.GetChild(1);
     }

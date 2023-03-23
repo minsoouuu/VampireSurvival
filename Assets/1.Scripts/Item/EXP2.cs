@@ -8,12 +8,9 @@ public class EXP2 : Item
     {
         itemData.exp = 30f;
     }
-    void Start()
+    public override void GetItem(Collider2D collision)
     {
-        Initalize();
+        collision.GetComponent<Player>().Exp += itemData.exp;
     }
-    public override void GetItem()
-    {
-        GameManager.instance.player.Exp += itemData.exp;
-    }
+
 }

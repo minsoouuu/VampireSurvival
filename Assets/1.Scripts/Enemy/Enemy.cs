@@ -23,8 +23,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private List<Sprite> runSprites;
     [SerializeField] private List<Sprite> deadSprite;
     [SerializeField] private Sprite hitSprite;
-    [SerializeField] private GameObject[] expItems;
-    [SerializeField] private GameObject boxItem;
+    [SerializeField] private Item[] expItems;
+    [SerializeField] private Item[] hel_mags;
     [HideInInspector] public Transform itemParent;
     [HideInInspector] public Transform boxParent;
     float curHp = 0;
@@ -47,15 +47,6 @@ public abstract class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        Vector3 playerPos = player.transform.position;
-        Vector3 myPos = transform.position;
-        Vector3 dirVec = playerPos - myPos;
-        Vector3 dir = Vector3.Normalize(dirVec);
-        Debug.Log(dir);
-        transform.Translate(dir * Time.deltaTime * enemyData.speed);
-        */
-
         if (GameManager.instance.isLive == false)
         {
             return;
@@ -129,6 +120,7 @@ public abstract class Enemy : MonoBehaviour
         if (rand >= 2)
         {
             // È®·ü µå¶ø
+            Instantiate(hel_mags[Random.Range(0, hel_mags.Length)],transform).transform.SetParent(itemParent);
         }
     }
 }

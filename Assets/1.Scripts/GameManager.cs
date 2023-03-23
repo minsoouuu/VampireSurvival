@@ -11,25 +11,8 @@ public class GameManager : MonoBehaviour
     public bool isLive = false;
     public Transform playerSpawnPoint;
     public Transform bulletParent;
-    public List<Player> players = new List<Player>();
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
-
-        //int rand = Random.Range(0, players.Count);
-        //SetPlayer(players[rand]);
-    }
-
-    void SetPlayer(Player player)
-    {
-        Player play = Instantiate(player, playerSpawnPoint);
-        isLive = true;
+        instance = this;
     }
 }
