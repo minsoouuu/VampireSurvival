@@ -61,6 +61,8 @@ public class Plough : Weapon
                 bull.transform.position += vec;
                 bull.transform.SetParent(GameManager.instance.player.bulletparent);
                 bull.transform.rotation = Quaternion.Euler(0, 0, 180);
+                bull.WeaponDamage = weapons.damage;
+
                 yield return new WaitForSeconds(0.2f);
             }
             else

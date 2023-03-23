@@ -32,7 +32,7 @@ public class ShotgunBullet : Bullet
     {
         if (coll.gameObject.CompareTag("Enemy"))
         {
-            coll.GetComponent<Enemy>().HP -= bulletData.damage;
+            coll.GetComponent<Enemy>().HP -= (WeaponDamage + bulletData.damage);
             Destroy(gameObject);
         }
     }

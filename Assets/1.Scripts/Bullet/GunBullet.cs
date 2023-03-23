@@ -7,23 +7,31 @@ public class GunBullet : Bullet
     public override void Initalize()
     {
         bulletData.damage = 10f;
-        bulletData.speed = 5f;
+        bulletData.speed = 8f;
     }
     private void Start()
     {
         Initalize();
-        Destroy(gameObject, 3f);
+        //Destroy(gameObject, 3f);
     }
     public override void Attack()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * bulletData.speed);
+        float dis = Vector3.Distance(transform.position, GameManager.instance.player.transform.position);
+        if (dis < 10)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * bulletData.speed);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public override void Hit(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Enemy"))
         {
-            coll.GetComponent<Enemy>().HP -= bulletData.damage;
+            coll.GetComponent<Enemy>().HP -= (WeaponDamage + bulletData.damage);
         }
     }
 }

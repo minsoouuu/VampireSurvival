@@ -34,6 +34,7 @@ public class Gun : Weapon
         {
             Bullet bt = Instantiate(bullet, GameManager.instance.player.bulletpos);
             bt.transform.SetParent(GameManager.instance.player.bulletparent);
+            bt.WeaponDamage = weapons.damage;
             yield return new WaitForSeconds(0.2f);
         }
         yield return new WaitForSeconds(weapons.shotDelay);

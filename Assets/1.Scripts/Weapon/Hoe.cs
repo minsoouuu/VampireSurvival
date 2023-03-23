@@ -29,6 +29,7 @@ public class Hoe : Weapon
         {
             Bullet bull = Instantiate(bullet, GameManager.instance.player.transform);
             bull.transform.SetParent(GameManager.instance.player.bulletparent);
+            bull.WeaponDamage = weapons.damage;
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(weapons.shotDelay);

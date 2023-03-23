@@ -7,6 +7,7 @@ public struct PlayerData
 {
     public float speed;
     public float maxHp;
+    public WeaponData clasicWeapon;
 }
 public enum State
 {
@@ -14,9 +15,21 @@ public enum State
     Run,
     Dead
 }
+
+public enum ClasicWeaponType
+{
+    Gun,
+    Shovels,
+    Plough,
+    Machinegun,
+    Hoe,
+    Shotgun
+}
+
 public abstract class Player : MonoBehaviour
 {
     public State state = State.Stand;
+    public ClasicWeaponType clasicWeapontype = new ClasicWeaponType();
     public PlayerData playerData = new PlayerData();
 
     [HideInInspector] public List<Enemy> enemys;
@@ -33,7 +46,6 @@ public abstract class Player : MonoBehaviour
     Animation anim;
     float curHp = 0f;
     float maxHP = 0f;
-    //[HideInInspector] public List<WeaponData> weaponDatas;
     [HideInInspector] public Enemy target = null;
     [HideInInspector] public Dictionary<string, Weapon> curWeapons = new Dictionary<string, Weapon>();
 
@@ -62,6 +74,8 @@ public abstract class Player : MonoBehaviour
 
         weaponPos = transform.GetChild(0);
         bulletpos = transform.GetChild(1);
+
+        
     }
     void Update()
     {
@@ -71,9 +85,9 @@ public abstract class Player : MonoBehaviour
         }
         if (curHp <= 0)
         {
-            
             GetComponent<SpriteAnimation>().SetSprite(deadSP, 0.1f);
-            //GameManager.instance.uicont.DieImage();
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
+            GameManager.instance.uicont.DieImage();
             transform.GetChild(0).gameObject.SetActive(false);
             GameManager.instance.isLive = false;
         }

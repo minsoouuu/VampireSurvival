@@ -35,8 +35,8 @@ public class ShovelsBullet : Bullet
         if (coll.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = coll.GetComponent<Enemy>();
-            enemy.HP -= bulletData.damage;
-            enemy.transform.Translate(dir * 0.1f);
+            enemy.HP -= (WeaponDamage + bulletData.damage);
+            enemy.transform.Translate(dir * 0.3f);
         }
     }
 }

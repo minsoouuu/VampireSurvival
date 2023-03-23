@@ -10,6 +10,9 @@ public struct BulletData
 
 public abstract class Bullet : MonoBehaviour
 {
+
+    public float WeaponDamage { get; set; }
+
     public BulletData bulletData = new BulletData();
     public abstract void Initalize();
     private void FixedUpdate()

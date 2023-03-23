@@ -30,6 +30,7 @@ public class Machinegun : Weapon
         {
             Bullet bull = Instantiate(bullet, GameManager.instance.player.bulletpos);
             bull.transform.SetParent(GameManager.instance.player.bulletparent);
+            bull.WeaponDamage = weapons.damage;
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSecondsRealtime(0.5f);

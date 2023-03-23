@@ -29,6 +29,8 @@ public class Shotgun : Weapon
                 Bullet bull = Instantiate(bullet, GameManager.instance.player.bulletpos);
                 bull.transform.SetParent(GameManager.instance.player.bulletparent);
                 bull.transform.rotation *= Quaternion.Euler(new Vector3(0, 0, j));
+                bull.WeaponDamage = weapons.damage;
+
                 //bull.transform.eulerAngles += new Vector3(0, 0, j);
                 //bull.GetComponent<ShotgunBullet>().SetDis(weapons.dis);
             }

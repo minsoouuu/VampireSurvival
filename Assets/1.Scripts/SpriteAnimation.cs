@@ -18,6 +18,7 @@ public class SpriteAnimation : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame

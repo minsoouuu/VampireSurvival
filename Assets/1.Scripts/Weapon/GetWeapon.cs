@@ -24,33 +24,7 @@ public class GetWeapon : MonoBehaviour
     {
         selSprite = GetComponent<Image>();
     }
-
-    public void OnClickWeapon()
-    {
-        /*
-        for (int i = 0; i < invens.Count; i++)
-        {
-            if(invens[i].sprite == null)
-            {
-                invens[i].sprite = selSprite.sprite;
-
-                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
-                GameManager.instance.isLive = true;
-                return;
-            }
-            else if(invens[i].sprite == selSprite.sprite)
-            {
-                invens[i].GetComponent<InvenTory>().WeaponLV += 1;
-                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
-                GameManager.instance.isLive = true;
-                break;
-            }
-        }
-        GameManager.instance.player.SetWeaponData(weaponData);
-        */
-    }
-
-    public void OnTest()
+    public void OnSetWeapon()
     {
         for (int i = 0; i < inven.Count; i++)
         {
@@ -79,5 +53,29 @@ public class GetWeapon : MonoBehaviour
         }
         this.weaponData = weaponData;
         selSprite.sprite = this.weaponData.SelectIcon;
+    }
+    public void OnClickWeapon()
+    {
+        /*
+        for (int i = 0; i < invens.Count; i++)
+        {
+            if(invens[i].sprite == null)
+            {
+                invens[i].sprite = selSprite.sprite;
+
+                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+                GameManager.instance.isLive = true;
+                return;
+            }
+            else if(invens[i].sprite == selSprite.sprite)
+            {
+                invens[i].GetComponent<InvenTory>().WeaponLV += 1;
+                transform.parent.GetComponent<CreateWeapon>().IsShow(false);
+                GameManager.instance.isLive = true;
+                break;
+            }
+        }
+        GameManager.instance.player.SetWeaponData(weaponData);
+        */
     }
 }

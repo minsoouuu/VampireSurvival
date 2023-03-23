@@ -42,6 +42,8 @@ public class Shovels : Weapon
             transform.rotation = Quaternion.AngleAxis((angle - 90) + i, Vector3.forward);
             bull.transform.rotation = Quaternion.AngleAxis((angle - 90), Vector3.forward);
             bull.transform.position += new Vector3(0, 1.5f, 0);
+            bull.WeaponDamage = weapons.damage;
+
         }
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         ison = false;

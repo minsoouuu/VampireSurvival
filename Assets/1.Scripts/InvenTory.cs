@@ -8,6 +8,7 @@ public class InvenTory : MonoBehaviour
     [SerializeField] private TMP_Text text;
     WeaponData weaponData;
     int weaponLV;
+    
     public int WeaponLV
     {
         get { return weaponLV; }

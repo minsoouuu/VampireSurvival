@@ -21,7 +21,7 @@ public class MachinegunBullet : Bullet
     {
         if (coll.gameObject.CompareTag("Enemy"))
         {
-            coll.GetComponent<Enemy>().HP -= bulletData.damage;
+            coll.GetComponent<Enemy>().HP -= (WeaponDamage + bulletData.damage);
             if (coll != null)
             {
                 Destroy(gameObject);

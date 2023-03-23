@@ -9,6 +9,7 @@ public class Select : MonoBehaviour
     public void OnChoiceCharacter(Player player)
     {
         sd.gm.player = player;
+        sd.gm.player.bulletparent = sd.gm.bulletParent;
         SceneManager.LoadScene("Game");
         DontDestroyOnLoad(sd);
     }

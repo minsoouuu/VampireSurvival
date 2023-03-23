@@ -6,10 +6,11 @@ public class EnemySpawnController : MonoBehaviour
 {
     float spawnTime = 0;
     [SerializeField] private Enemy[] Enemies;
-    [SerializeField] private Transform spawnPoints;
     [SerializeField] private Transform trans;
     [SerializeField] private Transform itemtrans;
     [SerializeField] private Transform boxtrans;
+    [SerializeField] private Transform spawnPoints;
+    [SerializeField] private Transform[] esps;
     int spawnIndex = 0;
     int enemyCount = 0;
 
@@ -32,7 +33,7 @@ public class EnemySpawnController : MonoBehaviour
         spawnTime += Time.deltaTime;
         if (spawnTime > 1f)
         {
-            CreateEnemy(spawnIndex);
+            Test(spawnIndex);
             spawnTime = 0f;
             enemyCount++;
         }
@@ -44,6 +45,19 @@ public class EnemySpawnController : MonoBehaviour
         if (spawnIndex > 4)
         {
             spawnIndex = 0;
+        }
+    }
+    void Test(int index)
+    {
+        for (int i = 0; i < esps.Length; i++)
+        {
+            Enemy enemy = Instantiate(Enemies[index], esps[i]);
+            enemy.Init();
+            enemy.itemParent = itemtrans;
+            enemy.boxParent = boxtrans;
+            //GameManager.instance.player.transform.GetChild(0).GetComponent<Weapon>().enemys.Add(enemy);
+            GameManager.instance.player.enemys.Add(enemy);
+            //enemy.transform.SetParent(trans);
         }
     }
     
