@@ -42,6 +42,15 @@ public class GetWeapon : MonoBehaviour
                 break;
             }
         }
+        GameObject items = GameObject.Find("ItemParent");
+        int child = items.transform.childCount;
+        for (int i = 0; i < child; i++)
+        {
+            if (items.transform.GetChild(i).GetComponent<Item>().isMag == true)
+            {
+                items.transform.GetChild(i).GetComponent<Item>().StartCoroutine("ItemMove");
+            }
+        }
         transform.parent.GetComponent<CreateWeapon>().IsShow(false);
         GameManager.instance.isLive = true;
     }

@@ -19,12 +19,18 @@ public class CreateWeapon : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            GameManager.instance.player.Exp += 100;
+            GameManager.instance.player.Exp = GameManager.instance.player.maxExp;
         }
         if (GameManager.instance.player.Exp >= GameManager.instance.player.maxExp)
         {
             GameManager.instance.isLive = false;
             GameManager.instance.player.LevelUp();
+            GameObject items = GameObject.Find("ItemParent");
+            int child = items.transform.childCount;
+            for (int i = 0; i < child; i++)
+            {
+                items.transform.GetChild(i).GetComponent<Item>().StopCoroutine("ItemMove");
+            }
             SetSprite();
             IsShow(true);
         }

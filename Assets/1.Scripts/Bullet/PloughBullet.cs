@@ -21,7 +21,7 @@ public class PloughBullet : Bullet
     {
         if (coll.gameObject.CompareTag("Enemy"))
         {
-            coll.GetComponent<Enemy>().HP -= (WeaponDamage + bulletData.damage);
+            coll.GetComponent<Enemy>().HP -= Damage();
         }
         Destroy(gameObject, 5f);
     }

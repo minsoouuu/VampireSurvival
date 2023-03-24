@@ -6,7 +6,7 @@ public class Mag : Item
 {
     public override void Initalize()
     {
-        itemData.exp = 10f;
+        itemData.exp = 0.5f;
     }
     public override void GetItem(Collider2D collision)
     {

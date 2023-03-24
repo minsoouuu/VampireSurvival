@@ -154,8 +154,11 @@ MonoBehaviour:
   hel_mags:
   - {fileID: 8960034392016322955, guid: 6c5c2c521769f154db49afaca97a0ecf, type: 3}
   - {fileID: 8761253185972970174, guid: 075b2399d946a1f488f2b898f5530819, type: 3}
+  - {fileID: 4226346052715286017, guid: aeafa2c070448624c90ff9b4bd45bd0e, type: 3}
+  stetsItems:
+  - {fileID: 8048974425859099147, guid: fad653de0107d794f99dba964f7daee5, type: 3}
+  - {fileID: 4307735177482648329, guid: f6800d80a8d8b9344b5390c13b5406af, type: 3}
   itemParent: {fileID: 0}
-  boxParent: {fileID: 0}
 --- !u!114 &2723980839014939183
 MonoBehaviour:
   m_ObjectHideFlags: 0

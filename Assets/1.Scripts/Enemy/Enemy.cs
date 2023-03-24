@@ -25,8 +25,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Sprite hitSprite;
     [SerializeField] private Item[] expItems;
     [SerializeField] private Item[] hel_mags;
+    [SerializeField] private Item[] stetsItems;
     [HideInInspector] public Transform itemParent;
-    [HideInInspector] public Transform boxParent;
     float curHp = 0;
     float attackdelayTime = 0;
 
@@ -116,11 +116,15 @@ public abstract class Enemy : MonoBehaviour
     void ItemDrop()
     {
         Instantiate(expItems[Random.Range(0, expItems.Length)], transform).transform.SetParent(itemParent);
-        int rand = Random.Range(0, 10);
-        if (rand >= 2)
+        int rand = Random.Range(0, 100);
+        if (rand <= 2)
         {
             // È®·ü µå¶ø
             Instantiate(hel_mags[Random.Range(0, hel_mags.Length)],transform).transform.SetParent(itemParent);
+        }
+        else if (rand > 99)
+        {
+            Instantiate(stetsItems[Random.Range(0, hel_mags.Length)], transform).transform.SetParent(itemParent);
         }
     }
 }

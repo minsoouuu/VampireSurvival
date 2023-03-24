@@ -46,6 +46,8 @@ public abstract class Player : MonoBehaviour
     Animation anim;
     float curHp = 0f;
     float maxHP = 0f;
+    float curExp = 0f;
+    float speed = 0f;
     [HideInInspector] public Enemy target = null;
     [HideInInspector] public Dictionary<string, Weapon> curWeapons = new Dictionary<string, Weapon>();
 
@@ -59,19 +61,24 @@ public abstract class Player : MonoBehaviour
         get { return maxHP; }
         set { maxHP = value; }
     }
-    float curExp = 0;
     [HideInInspector] public float maxExp = 100f;
     public float Exp
     {
         get { return curExp; }
         set { curExp = value; }
     }
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
+    public float Damage { get; set; }
     public abstract void Initalize();
     void Start()
     {
         HP = playerData.maxHp;
         MaxHp = playerData.maxHp;
-
+        speed = playerData.speed;
         weaponPos = transform.GetChild(0);
         bulletpos = transform.GetChild(1);
 
@@ -97,7 +104,7 @@ public abstract class Player : MonoBehaviour
 
         Vector3 ve2 = new Vector3(x, y, 0f);
         Vector3 dir = Vector3.Normalize(ve2);
-        transform.position += dir * Time.deltaTime * playerData.speed;
+        transform.position += dir * Time.deltaTime * Speed;
 
         if (weaponPos.transform.childCount >= 1)
         {
@@ -186,7 +193,7 @@ public abstract class Player : MonoBehaviour
     }
     public void LevelUp()
     {
-        curHp = playerData.maxHp;
+        HP = MaxHp;
         curExp = 0;
         maxExp += 50f;
     }

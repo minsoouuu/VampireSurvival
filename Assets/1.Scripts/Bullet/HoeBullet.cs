@@ -73,7 +73,7 @@ public class HoeBullet : Bullet
     {
         if (coll.gameObject.CompareTag("Enemy"))
         {
-            coll.GetComponent<Enemy>().HP -= (WeaponDamage + bulletData.damage);
+            coll.GetComponent<Enemy>().HP -= Damage();
         }
         else if (coll.gameObject.CompareTag("Player") && isBack == true)
         {

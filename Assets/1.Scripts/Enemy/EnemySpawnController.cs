@@ -6,23 +6,12 @@ public class EnemySpawnController : MonoBehaviour
 {
     float spawnTime = 0;
     [SerializeField] private Enemy[] Enemies;
-    [SerializeField] private Transform trans;
-    [SerializeField] private Transform itemtrans;
-    [SerializeField] private Transform boxtrans;
-    [SerializeField] private Transform spawnPoints;
-    [SerializeField] private Transform[] esps;
+    [SerializeField] private Transform itemparent;
+    [SerializeField] private Transform[] enemySpawnPoints;
     int spawnIndex = 0;
     int enemyCount = 0;
 
 
-    [SerializeField] private GameObject box;
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.instance.isLive == false)
@@ -33,7 +22,7 @@ public class EnemySpawnController : MonoBehaviour
         spawnTime += Time.deltaTime;
         if (spawnTime > 1f)
         {
-            Test(spawnIndex);
+            CreateEnemy(spawnIndex);
             spawnTime = 0f;
             enemyCount++;
         }
@@ -47,28 +36,14 @@ public class EnemySpawnController : MonoBehaviour
             spawnIndex = 0;
         }
     }
-    void Test(int index)
-    {
-        for (int i = 0; i < esps.Length; i++)
-        {
-            Enemy enemy = Instantiate(Enemies[index], esps[i]);
-            enemy.Init();
-            enemy.itemParent = itemtrans;
-            enemy.boxParent = boxtrans;
-            //GameManager.instance.player.transform.GetChild(0).GetComponent<Weapon>().enemys.Add(enemy);
-            GameManager.instance.player.enemys.Add(enemy);
-            //enemy.transform.SetParent(trans);
-        }
-    }
-    
     void CreateEnemy(int index)
     {
-        Enemy enemy = Instantiate(Enemies[index], spawnPoints);
-        enemy.Init();
-        enemy.itemParent = itemtrans;
-        enemy.boxParent = boxtrans;
-        //GameManager.instance.player.transform.GetChild(0).GetComponent<Weapon>().enemys.Add(enemy);
-        GameManager.instance.player.enemys.Add(enemy);
-        //enemy.transform.SetParent(trans);
+        for (int i = 0; i < enemySpawnPoints.Length; i++)
+        {
+            Enemy enemy = Instantiate(Enemies[index], enemySpawnPoints[i]);
+            enemy.itemParent = this.itemparent;
+            enemy.Init();
+            GameManager.instance.player.enemys.Add(enemy);
+        }
     }
 }

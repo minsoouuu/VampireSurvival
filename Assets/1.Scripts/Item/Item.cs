@@ -8,10 +8,12 @@ public struct ItemData
 {
     public float exp;
     public float health;
+    public float speed;
 }
 public abstract class Item : MonoBehaviour
 {
     public ItemData itemData = new ItemData();
+    public bool isMag = false;
     void Start()
     {
         Initalize();
@@ -24,10 +26,9 @@ public abstract class Item : MonoBehaviour
     {
         StartCoroutine("ItemMove");
     }
-    IEnumerator ItemMove()
+    public IEnumerator ItemMove()
     {
-        yield return new WaitForSeconds(0.1f);
-
+        isMag = true;
         while (gameObject != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.transform.position, 0.1f);

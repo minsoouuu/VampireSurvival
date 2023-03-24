@@ -27,4 +27,10 @@ public abstract class Bullet : MonoBehaviour
     {
         Hit(collision);
     }
+
+    public float Damage()
+    {
+        float damage = bulletData.damage + GameManager.instance.player.Damage + WeaponDamage;
+        return damage;
+    }
 }
