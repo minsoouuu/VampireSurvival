@@ -8,6 +8,7 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private Enemy[] Enemies;
     [SerializeField] private Transform itemparent;
     [SerializeField] private Transform[] enemySpawnPoints;
+    [SerializeField] private Transform enemyParent;
     int spawnIndex = 0;
     int enemyCount = 0;
 
@@ -43,6 +44,7 @@ public class EnemySpawnController : MonoBehaviour
             Enemy enemy = Instantiate(Enemies[index], enemySpawnPoints[i]);
             enemy.itemParent = this.itemparent;
             enemy.Init();
+            enemy.transform.SetParent(enemyParent);
             GameManager.instance.player.enemys.Add(enemy);
         }
     }

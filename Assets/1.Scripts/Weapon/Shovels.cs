@@ -8,7 +8,7 @@ public class Shovels : Weapon
     
     public override void Initailize()
     {
-        weapons.damage = 5f;
+        weapons.damage = 50f;
         weapons.dis = 0f;
     }
     
