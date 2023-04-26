@@ -13,7 +13,8 @@ public enum States
 {
     Stand,
     Run,
-    Hit
+    Hit,
+    Die
 }
 
 public abstract class Enemy : MonoBehaviour
